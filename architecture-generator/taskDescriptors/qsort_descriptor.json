@@ -1,0 +1,32 @@
+{
+    "taskList": [
+        {
+            "name": "qsort",
+            "type": "complete",
+            "argBitSize": 256,
+            "peCount": 24,
+            "stealQueueSize": 32,
+            "continuationQueueSize": 0
+        },
+        {
+            "name": "sync",
+            "type": "continuation",
+            "argBitSize": 128,
+            "peCount": 2,
+            "stealQueueSize": 16,
+            "continuationQueueSize": 2
+        }
+    ],
+    "spawnList": {
+        "qsort": ["qsort"]
+    },
+    "spawnNextList": {
+        "qsort": ["sync"]
+    },
+    "sendArgumentList": {
+        "qsort": ["sync"],
+        "sync": ["sync"]
+    },
+    "systemAddressWidth":64,
+    "continuationCounterWidth":32
+}

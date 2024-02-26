@@ -1,0 +1,1 @@
+{"name": "paper_exp_dae_0", "executable": "simulation_paper_exp_dae_0", "parameters": {"pe_execute.computeTime_ns": "<class 'int'>", "pe_execute.memoryDelay_ns": "<class 'int'>", "graph.depth": "<class 'int'>", "graph.breadth": "<class 'int'>", "factoryIndex": "<class 'int'>"}, "extraArguments": ["--clockPeriod_ns", 2, "--logEnabled", 0]}

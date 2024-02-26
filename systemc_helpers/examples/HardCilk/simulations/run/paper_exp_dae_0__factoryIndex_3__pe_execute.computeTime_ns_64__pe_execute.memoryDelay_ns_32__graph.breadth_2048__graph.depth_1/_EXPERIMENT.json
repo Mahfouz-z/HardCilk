@@ -1,0 +1,1 @@
+{"simulationName": "paper_exp_dae_0", "arguments": {"factoryIndex": 3, "pe_execute.computeTime_ns": 64, "pe_execute.memoryDelay_ns": 32, "graph.breadth": 2048, "graph.depth": 1}, "extraArguments": [], "stdin": []}

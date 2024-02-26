@@ -1,0 +1,20 @@
+#include {{ factories.selfHppInclude }}
+
+/* BEGIN include files */
+{%- for x in factories.cppIncludes %}
+#include {{ x }}
+{%- endfor %}
+/* END */
+
+{% if factories.namespace -%}
+namespace {{ factories.namespace }}
+{
+
+{% endif -%}
+
+flexitask::Factory {{ factories.variableName }}[{{ factories|length }}] = {{ cpp_array }};
+
+{% if factories.namespace -%}
+} /* namespace {{ factories.namespace }} */
+
+{% endif -%}
