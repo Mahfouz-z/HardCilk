@@ -135,7 +135,7 @@ _REGEX_1 = r"(\S+) <--> (\S+); <(\S+)>"
 
 
 @dataclasses.dataclass
-class FlexiTaskSystem:
+class HardCilkSystem:
     tasks: Dict[str, Task] = None
     system: System = None
     connections: List[Tuple[str, str]] = _connections_field()
@@ -163,8 +163,8 @@ class FlexiTaskSystem:
         # can only have tasks.
         pass
 
-    def from_dict(json: Dict) -> "FlexiTaskSystem":
-        result = FlexiTaskSystem()
+    def from_dict(json: Dict) -> "HardCilkSystem":
+        result = HardCilkSystem()
 
         result.widthAddress = json["systemAddressWidth"]
         result.widthContinuationCounter = json["continuationCounterWidth"]
@@ -220,9 +220,9 @@ class FlexiTaskSystem:
 
         return result
 
-    def elaborate(self, connections_fpath: str = None) -> "FlexiTaskSystem":
+    def elaborate(self, connections_fpath: str = None) -> "HardCilkSystem":
         """
-        This function returns an elaborated FlexiTaskSystem from a partial system description.
+        This function returns an elaborated HardCilkSystem from a partial system description.
         """
 
         if self.isElaborated:
@@ -423,14 +423,14 @@ def main() -> None:
     txt_file = "descriptor/fib_descriptor.txt"
 
     with open(json_file) as f:
-        flexiTaskSystem = FlexiTaskSystem.from_dict(json.load(f))
-    # pprint.pprint(flexiTaskSystem)
+        hardCilkSystem = HardCilkSystem.from_dict(json.load(f))
+    # pprint.pprint(hardCilkSystem)
 
-    flexiTaskSystem.elaborate(txt_file)
-    # pprint.pprint(flexiTaskSystem)
+    hardCilkSystem.elaborate(txt_file)
+    # pprint.pprint(hardCilkSystem)
 
     dump = cpp_dump.Dumper()
-    print(dump(flexiTaskSystem))
+    print(dump(hardCilkSystem))
 
 if __name__ == "__main__":
     main()

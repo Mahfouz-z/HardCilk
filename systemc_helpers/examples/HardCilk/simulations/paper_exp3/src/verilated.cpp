@@ -1038,9 +1038,9 @@ void VerilatedTlmModule::do_init_()
     set("description", description);
 }
 
-hardcilk::desc::FlexiTaskSystem VerilatedTlmModule::description = [] {
+hardcilk::desc::HardCilkSystem VerilatedTlmModule::description = [] {
     using namespace hardcilk::desc;
-    auto description = FlexiTaskSystem{
+    auto description = HardCilkSystem{
         .tasks = []() {
             std::map<std::string, Task> r;
             r["task1Exp3"] = Task{

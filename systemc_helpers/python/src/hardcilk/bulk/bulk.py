@@ -135,7 +135,7 @@ class HardwareConfigurations(list):
     processingElementTypes: List[TypeNameMappedName] = list_field()
     processorTypeName: str = None  # type: ignore
 
-    wrapperClassName: str = "FlexiTaskSystem_{}"
+    wrapperClassName: str = "HardCilkSystem_{}"
     wrapperInclude: str = '<generated/{}.hpp>'
 
     hppIncludes: List[str] = list_field()
@@ -167,10 +167,10 @@ class HardwareConfigurations(list):
 
         connections = hdl.emit_verilog(
             desc, "{}/{}/".format(self.pathOutputDirHardware, className))
-        flexiTaskSystem = wrapper.elaborate(
+        hardCilkSystem = wrapper.elaborate(
             wrapper.from_dict(desc),
             connections)
-        module = wrapper.to_module(flexiTaskSystem, moduleOptions)
+        module = wrapper.to_module(hardCilkSystem, moduleOptions)
         hpp, cpp = module.generate()
 
         # write the generated hardware

@@ -51,7 +51,7 @@ desc = {
 
 def main() -> None:
     connections = hardcilk.hdl.emit_verilog(desc, "./hdl")
-    flexiTaskSystem = hardcilk.wrapper.elaborate(
+    hardCilkSystem = hardcilk.wrapper.elaborate(
         hardcilk.wrapper.from_dict(desc),
         connections
     )
@@ -63,7 +63,7 @@ def main() -> None:
         hppInclude="\"verilated.hpp\""
     )
 
-    module = hardcilk.wrapper.to_module(flexiTaskSystem, moduleOptions)
+    module = hardcilk.wrapper.to_module(hardCilkSystem, moduleOptions)
     hpp, cpp = module.generate()
 
     with open("src/verilated.cpp", "w") as f:

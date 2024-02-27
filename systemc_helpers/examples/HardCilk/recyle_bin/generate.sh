@@ -4,9 +4,9 @@ function generate_files() {
     mkdir -p generated
 
     # add other generated systems here...
-    python3 -m hardcilk --input descriptors/fibonacci --output generated/fibonacci --input-name Vfibonacci --output-name FibonacciFlexiTask
-    python3 -m hardcilk --input descriptors/paper_exp1 --output generated/paper_exp1 --input-name Vpaper_exp1 --output-name PaperExp1FlexiTask
-    # python3 -m hardcilk --input descriptors/matmul --output generated/matmul --output-name MatmulFlexiTask
+    python3 -m hardcilk --input descriptors/fibonacci --output generated/fibonacci --input-name Vfibonacci --output-name FibonacciHardCilk
+    python3 -m hardcilk --input descriptors/paper_exp1 --output generated/paper_exp1 --input-name Vpaper_exp1 --output-name PaperExp1HardCilk
+    # python3 -m hardcilk --input descriptors/matmul --output generated/matmul --output-name MatmulHardCilk
 }
 
 if [ ! -f CMakeLists.txt ]

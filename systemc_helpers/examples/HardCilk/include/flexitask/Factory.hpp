@@ -63,12 +63,12 @@ struct Factory : private ::util::factory<tlm_module> {
         return ptr { create("@top", moduleName.c_str(), context) };
     }
 
-    desc::FlexiTaskSystem* hardwareDescription() const noexcept {
+    desc::HardCilkSystem* hardwareDescription() const noexcept {
         return hardwareDescription_;
     }
 
 private:
-    desc::FlexiTaskSystem* hardwareDescription_ { nullptr };
+    desc::HardCilkSystem* hardwareDescription_ { nullptr };
 };
 
 } // namespace hardcilk

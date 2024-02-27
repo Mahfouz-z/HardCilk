@@ -42,7 +42,7 @@ int sc_main(int argc, char* argv[]) {
     auto& factory = fibonacci::factories[context.get<unsigned int>("factoryIndex")];
 
     context.set<Factory*>("factory", &factory);
-    context.set<hardcilk::desc::FlexiTaskSystem*>("description", factory.hardwareDescription());
+    context.set<hardcilk::desc::HardCilkSystem*>("description", factory.hardwareDescription());
 
     auto top = factory.instantiateTop("top", context);
 

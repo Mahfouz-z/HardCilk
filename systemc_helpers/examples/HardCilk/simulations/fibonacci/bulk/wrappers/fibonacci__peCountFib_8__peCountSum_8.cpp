@@ -1608,9 +1608,9 @@ void fibonacci__peCountFib_8__peCountSum_8::do_init_()
     set("description", description);
 }
 
-hardcilk::desc::FlexiTaskSystem fibonacci__peCountFib_8__peCountSum_8::description = [] {
+hardcilk::desc::HardCilkSystem fibonacci__peCountFib_8__peCountSum_8::description = [] {
     using namespace hardcilk::desc;
-    auto description = FlexiTaskSystem{
+    auto description = HardCilkSystem{
         .tasks = []() {
             std::map<std::string, Task> r;
             r["fib"] = Task{

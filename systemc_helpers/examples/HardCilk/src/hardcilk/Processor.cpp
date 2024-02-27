@@ -10,7 +10,7 @@
 namespace hardcilk {
 
 void Processor::thread() {
-    auto const& desc = *context.get<desc::FlexiTaskSystem*>("description");
+    auto const& desc = *context.get<desc::HardCilkSystem*>("description");
 
     wait(reset.negedge_event());
 

@@ -2,9 +2,9 @@
 
 
         def doesSpawnItself(task: Task):
-            if task.name in flexiTaskSystem.spawnList.keys():
-                spawnedTasks = flexiTaskSystem.spawnList[task.name]
-                return task.name in flexiTaskSystem.spawnList[task.name]
+            if task.name in hardCilkSystem.spawnList.keys():
+                spawnedTasks = hardCilkSystem.spawnList[task.name]
+                return task.name in hardCilkSystem.spawnList[task.name]
             return False
 
                 taskIn = Interface(
@@ -15,7 +15,7 @@
                     config=AxisConfig(task.widthArg, 0))
                 processingElement.interfaces.append(taskIn)
                 
-                flexiTaskSystem.connections.append((taskIn.name, f"{task.name}_stealSide_taskOut_{i}"))
+                hardCilkSystem.connections.append((taskIn.name, f"{task.name}_stealSide_taskOut_{i}"))
                 
                 if doesSpawnItself(task):
                     pass

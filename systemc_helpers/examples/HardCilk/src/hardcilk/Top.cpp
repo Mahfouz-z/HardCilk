@@ -31,7 +31,7 @@ Top::Top(sc_core::sc_module_name const& name, Context& context)
     set("reset", reset);
 
     auto const& factory = *context.get<Factory*>("factory");
-    auto const& desc = *context.get<desc::FlexiTaskSystem*>("description");
+    auto const& desc = *context.get<desc::HardCilkSystem*>("description");
 
     /* interface path to socket object mapping, used for connections */
     std::unordered_map<std::string, tlm::tlm_target_socket<>*> targetSockets;
@@ -40,7 +40,7 @@ Top::Top(sc_core::sc_module_name const& name, Context& context)
     /* for setting up the interconnect */
     size_type masterIdx = 0, slaveIdx = 0;
 
-    system_ = factory.instantiateSystem("flexiTaskSystem");
+    system_ = factory.instantiateSystem("hardCilkSystem");
 
     {
         auto& systemClock = system_->get<sc_core::sc_in<bool>>("clock");
@@ -87,7 +87,7 @@ Top::Top(sc_core::sc_module_name const& name, Context& context)
                 );
 
                 /* todo maybe find a better way to pass information later */
-                processingElement->set_object("descFlexiTaskSystem", &desc);
+                processingElement->set_object("descHardCilkSystem", &desc);
                 processingElement->set_object("descProcessingElement", &processingElement);
 
                 {

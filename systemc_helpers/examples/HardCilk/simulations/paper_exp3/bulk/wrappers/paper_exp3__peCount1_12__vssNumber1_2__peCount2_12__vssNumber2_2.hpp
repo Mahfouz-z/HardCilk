@@ -65,7 +65,7 @@ struct paper_exp3__peCount1_12__vssNumber1_2__peCount2_12__vssNumber2_2 :
     }
 #endif
     
-    static hardcilk::desc::FlexiTaskSystem description;
+    static hardcilk::desc::HardCilkSystem description;
     
 
 private:

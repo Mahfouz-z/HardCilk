@@ -140,7 +140,7 @@ _REGEX_2 = r"^.*_(\d+)$"
 
 
 @dataclasses.dataclass
-class FlexiTaskSystem:
+class HardCilkSystem:
     tasks: Dict[str, Task] = None  # type: ignore
     system: System = None  # type: ignore
     connections: List[Tuple[str, str]] = _connections_field()  # type: ignore
@@ -177,8 +177,8 @@ class ModuleOptions:
     verilatedTraceMacro: str = None  # type: ignore
 
 
-def from_dict(d: Dict) -> FlexiTaskSystem:
-    result = FlexiTaskSystem()
+def from_dict(d: Dict) -> HardCilkSystem:
+    result = HardCilkSystem()
 
     result.widthAddress = d["systemAddressWidth"]
     result.widthContinuationCounter = d["continuationCounterWidth"]
@@ -235,29 +235,29 @@ def from_dict(d: Dict) -> FlexiTaskSystem:
     return result
 
 
-def elaborate(flexiTaskSystem: FlexiTaskSystem, txt: Optional[Union[str, List[str]]]) -> FlexiTaskSystem:
+def elaborate(hardCilkSystem: HardCilkSystem, txt: Optional[Union[str, List[str]]]) -> HardCilkSystem:
     """
-    This function elaborates a partial FlexiTaskSystem description.
+    This function elaborates a partial HardCilkSystem description.
     """
-    assert flexiTaskSystem is not None
+    assert hardCilkSystem is not None
 
     if isinstance(txt, str):
         txt = txt.splitlines()
 
-    if flexiTaskSystem.isElaborated:
-        return flexiTaskSystem
+    if hardCilkSystem.isElaborated:
+        return hardCilkSystem
 
-    flexiTaskSystem.isElaborated = True
+    hardCilkSystem.isElaborated = True
 
     # 1 master for the microprocessor
-    flexiTaskSystem.interconnectMasters = 1
+    hardCilkSystem.interconnectMasters = 1
 
     # 1 slave for the memory
-    flexiTaskSystem.interconnectSlaves = 1
+    hardCilkSystem.interconnectSlaves = 1
 
-    addr = flexiTaskSystem.managementBase
+    addr = hardCilkSystem.managementBase
 
-    for task in flexiTaskSystem.tasks.values():
+    for task in hardCilkSystem.tasks.values():
         task.processingElements = {}
         task.virtualStealServers = {}
         task.virtualContinuationAddressServers = {}
@@ -280,11 +280,11 @@ def elaborate(flexiTaskSystem: FlexiTaskSystem, txt: Optional[Union[str, List[st
 
                 # TODO do we really now if the mem port of a PE
                 # is always 64-bits wide? Verify with Mohamed.
-                config=Axi4Config(flexiTaskSystem.widthAddress, 64)
+                config=Axi4Config(hardCilkSystem.widthAddress, 64)
             )
 
             processingElement.interfaces[mem.name] = mem
-            flexiTaskSystem.interconnectMasters += 1
+            hardCilkSystem.interconnectMasters += 1
 
             # TODO foreach processing element, create other interfaces
             # and connections (if possible)
@@ -323,10 +323,10 @@ def elaborate(flexiTaskSystem: FlexiTaskSystem, txt: Optional[Union[str, List[st
             task.virtualContinuationAddressServers[vcas.name] = vcas
 
     if txt is None:
-        return flexiTaskSystem
+        return hardCilkSystem
 
-    flexiTaskSystem.system.interfaces = {}
-    flexiTaskSystem.connections = []
+    hardCilkSystem.system.interfaces = {}
+    hardCilkSystem.connections = []
 
     def process_line0(line: str) -> None:
         """
@@ -337,7 +337,7 @@ def elaborate(flexiTaskSystem: FlexiTaskSystem, txt: Optional[Union[str, List[st
         taskName = match[1]
         processingElementName = f"{match[2]}_{match[3]}"
 
-        task = flexiTaskSystem.tasks[taskName]
+        task = hardCilkSystem.tasks[taskName]
         processingElement = task.processingElements[processingElementName.lower(
         )]
 
@@ -363,22 +363,22 @@ def elaborate(flexiTaskSystem: FlexiTaskSystem, txt: Optional[Union[str, List[st
         # and for the system
         interface2 = Interface(
             name=connectsTo,
-            parent=flexiTaskSystem.system.path,
-            path=f"{flexiTaskSystem.system.path}/interfaces:{connectsTo}",
+            parent=hardCilkSystem.system.path,
+            path=f"{hardCilkSystem.system.path}/interfaces:{connectsTo}",
             portName=connectsTo,
             protocol=InterfaceProtocol.Axis,
             isSlave=checkSlave(connectsTo),
             config=AxisConfig(widthData, 0, True, True)
         )
-        flexiTaskSystem.system.interfaces[interface2.name] = interface2
+        hardCilkSystem.system.interfaces[interface2.name] = interface2
 
         assert interface1.isSlave != interface2.isSlave
 
         if not interface1.isSlave:
-            flexiTaskSystem.connections.append(
+            hardCilkSystem.connections.append(
                 (interface1.path, interface2.path))
         else:
-            flexiTaskSystem.connections.append(
+            hardCilkSystem.connections.append(
                 (interface2.path, interface1.path))
 
     def process_line1(line: str) -> None:
@@ -395,33 +395,33 @@ def elaborate(flexiTaskSystem: FlexiTaskSystem, txt: Optional[Union[str, List[st
             interfaceName = connectsFrom
             interface = Interface(
                 name=interfaceName,
-                parent=flexiTaskSystem.system.path,
-                path=f"{flexiTaskSystem.system.path}/interfaces:{interfaceName}",
+                parent=hardCilkSystem.system.path,
+                path=f"{hardCilkSystem.system.path}/interfaces:{interfaceName}",
                 portName=interfaceName,
                 isSlave=False,
 
                 # TODO make sure that width is always 6
-                config=Axi4Config(flexiTaskSystem.widthAddress, widthData)
+                config=Axi4Config(hardCilkSystem.widthAddress, widthData)
             )
-            flexiTaskSystem.system.interfaces[interface.name] = interface
-            flexiTaskSystem.interconnectMasters += 1
+            hardCilkSystem.system.interfaces[interface.name] = interface
+            hardCilkSystem.interconnectMasters += 1
         elif "_axi_mgmt_" in connectsFrom:
             interfaceName = connectsFrom
             interface = Interface(
                 name=interfaceName,
-                parent=flexiTaskSystem.system.path,
-                path=f"{flexiTaskSystem.system.path}/interfaces:{interfaceName}",
+                parent=hardCilkSystem.system.path,
+                path=f"{hardCilkSystem.system.path}/interfaces:{interfaceName}",
                 portName=interfaceName,
                 isSlave=True,
 
                 # TODO make sure that address width is always 6
                 config=Axi4liteConfig(6, widthData)
             )
-            flexiTaskSystem.system.interfaces[interface.name] = interface
-            flexiTaskSystem.interconnectSlaves += 1
+            hardCilkSystem.system.interfaces[interface.name] = interface
+            hardCilkSystem.interconnectSlaves += 1
 
             taskName = connectsFrom.split("_")[0]
-            task = flexiTaskSystem.tasks[taskName]
+            task = hardCilkSystem.tasks[taskName]
 
             # for now, the number is not encoded yet.
             # Mohamed will do this later.
@@ -458,10 +458,10 @@ def elaborate(flexiTaskSystem: FlexiTaskSystem, txt: Optional[Union[str, List[st
         else:
             process_line1(line)
 
-    return flexiTaskSystem
+    return hardCilkSystem
 
 
-def from_file(json_fpath: Union[str, os.PathLike], txt_fpath: Union[str, os.PathLike]) -> FlexiTaskSystem:
+def from_file(json_fpath: Union[str, os.PathLike], txt_fpath: Union[str, os.PathLike]) -> HardCilkSystem:
     with open(json_fpath) as f:
         json_data = json.load(f)
 
@@ -471,7 +471,7 @@ def from_file(json_fpath: Union[str, os.PathLike], txt_fpath: Union[str, os.Path
     return elaborate(from_dict(json_data), txt_data)
 
 
-def to_module(flexiTaskSystem: FlexiTaskSystem, moduleOptions: ModuleOptions) -> Module:
+def to_module(hardCilkSystem: HardCilkSystem, moduleOptions: ModuleOptions) -> Module:
     module = Module(
         name=moduleOptions.className,
         verilated_name=moduleOptions.moduleName,
@@ -479,7 +479,7 @@ def to_module(flexiTaskSystem: FlexiTaskSystem, moduleOptions: ModuleOptions) ->
         hpp_include_str=moduleOptions.hppInclude,
         verilated_trace_macro=moduleOptions.verilatedTraceMacro)
 
-    for _, interface in flexiTaskSystem.system.interfaces.items():
+    for _, interface in hardCilkSystem.system.interfaces.items():
         module.new_interface(interface.portName,
                              interface.isSlave, interface.config)
 
@@ -489,12 +489,12 @@ def to_module(flexiTaskSystem: FlexiTaskSystem, moduleOptions: ModuleOptions) ->
 
     module.add_include("<hardcilk/Desc.hpp>", is_hpp=True, is_cpp=False)
 
-    module.class_extra_hpp.append("static hardcilk::desc::FlexiTaskSystem description;")
+    module.class_extra_hpp.append("static hardcilk::desc::HardCilkSystem description;")
 
     dumper = util.Dumper()
     
     dumper.indent()
-    dumper.writeln(f"hardcilk::desc::FlexiTaskSystem {module.name}::description = [] {{")
+    dumper.writeln(f"hardcilk::desc::HardCilkSystem {module.name}::description = [] {{")
 
     dumper.indent_in()
 
@@ -505,7 +505,7 @@ def to_module(flexiTaskSystem: FlexiTaskSystem, moduleOptions: ModuleOptions) ->
     cpp_dumper.indent_in() # to match the indentation of the other module
 
     dumper.indent()
-    dumper.writeln(f"auto description = {cpp_dumper(flexiTaskSystem)};")
+    dumper.writeln(f"auto description = {cpp_dumper(hardCilkSystem)};")
 
     dumper.indent()
     dumper.writeln("return description;")
@@ -540,7 +540,7 @@ __all__ = [
     "ProcessingElement",
     "Task",
     "System",
-    "FlexiTaskSystem",
+    "HardCilkSystem",
     "ModuleOptions",
 
     "elaborate",

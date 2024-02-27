@@ -65,7 +65,7 @@ struct fibonacci__peCountFib_8__peCountSum_8 :
     }
 #endif
     
-    static hardcilk::desc::FlexiTaskSystem description;
+    static hardcilk::desc::HardCilkSystem description;
     
 
 private:

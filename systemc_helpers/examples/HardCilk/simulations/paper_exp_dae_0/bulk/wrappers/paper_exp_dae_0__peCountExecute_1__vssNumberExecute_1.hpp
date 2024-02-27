@@ -65,7 +65,7 @@ struct paper_exp_dae_0__peCountExecute_1__vssNumberExecute_1 :
     }
 #endif
     
-    static hardcilk::desc::FlexiTaskSystem description;
+    static hardcilk::desc::HardCilkSystem description;
     
 
 private:

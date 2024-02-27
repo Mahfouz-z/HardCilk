@@ -752,9 +752,9 @@ void paper_exp1__peCount_8__vssNumber_6::do_init_()
     set("description", description);
 }
 
-hardcilk::desc::FlexiTaskSystem paper_exp1__peCount_8__vssNumber_6::description = [] {
+hardcilk::desc::HardCilkSystem paper_exp1__peCount_8__vssNumber_6::description = [] {
     using namespace hardcilk::desc;
-    auto description = FlexiTaskSystem{
+    auto description = HardCilkSystem{
         .tasks = []() {
             std::map<std::string, Task> r;
             r["task"] = Task{

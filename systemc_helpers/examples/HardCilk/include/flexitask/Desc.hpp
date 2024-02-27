@@ -139,7 +139,7 @@ struct System {
     std::map<std::string, Interface> interfaces;
 };
 
-struct FlexiTaskSystem {
+struct HardCilkSystem {
     std::map<std::string, Task> tasks;
     System system;
     std::vector<std::pair<std::string, std::string>> connections;

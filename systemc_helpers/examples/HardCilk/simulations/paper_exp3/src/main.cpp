@@ -50,7 +50,7 @@ int sc_main(int argc, char* argv[]) {
     auto& factory = paper_exp3::factories[context.get<unsigned int>("factoryIndex")];
 
     context.set<Factory*>("factory", &factory);
-    auto const& hwConf = *context.set<hardcilk::desc::FlexiTaskSystem*>("description", factory.hardwareDescription());
+    auto const& hwConf = *context.set<hardcilk::desc::HardCilkSystem*>("description", factory.hardwareDescription());
 
     auto peCount = hwConf.tasks.at("task1Exp3").numProcessingElements + hwConf.tasks.at("task2Exp3").numProcessingElements;
     auto& remainingTasks = context.set<int>("remainingTasks", 1);
