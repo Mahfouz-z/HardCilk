@@ -5,7 +5,7 @@ from ..util import Dumper
 from typing import *  # type: ignore
 import jinja2
 
-PACKAGE_NAME = "flexitask.bulk"
+PACKAGE_NAME = "hardcilk.bulk"
 
 
 def list_field():
@@ -64,7 +64,7 @@ class Factory:
         dumper.indent_in()
 
         dumper.indent()
-        dumper.writeln("flexitask::Factory factory;")
+        dumper.writeln("hardcilk::Factory factory;")
 
         dumper.indent()
         dumper.writeln(f"factory.registerSystem<{self.systemTypeName}>();")

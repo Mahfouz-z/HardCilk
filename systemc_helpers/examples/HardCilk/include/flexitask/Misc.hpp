@@ -1,16 +1,16 @@
-#ifndef FLEXITASK_MISC_HPP_INCLUDED
-#define FLEXITASK_MISC_HPP_INCLUDED
+#ifndef HARDCILK_MISC_HPP_INCLUDED
+#define HARDCILK_MISC_HPP_INCLUDED
 
-#ifndef FLEXITASK_STRINGIZE
-#    define FLEXITASK_STRINGIZE_DETAIL(x) #x
-#    define FLEXITASK_STRINGIZE(x) FLEXITASK_STRINGIZE_DETAIL(x)
+#ifndef HARDCILK_STRINGIZE
+#    define HARDCILK_STRINGIZE_DETAIL(x) #x
+#    define HARDCILK_STRINGIZE(x) HARDCILK_STRINGIZE_DETAIL(x)
 #endif
 
-#ifndef FLEXITASK_UNUSED
-#    define FLEXITASK_UNUSED(x) ((void)(x))
+#ifndef HARDCILK_UNUSED
+#    define HARDCILK_UNUSED(x) ((void)(x))
 #endif
 
-namespace flexitask {
+namespace hardcilk {
 
 namespace util {
 
@@ -41,4 +41,4 @@ constexpr T align(T t, T alignment) noexcept {
 
 }
 
-#endif /* FLEXITASK_MISC_HPP_INCLUDED */
+#endif /* HARDCILK_MISC_HPP_INCLUDED */

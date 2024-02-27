@@ -1,8 +1,8 @@
-#include <flexitask/MemParams.hpp>
+#include <hardcilk/MemParams.hpp>
 
 #include <stdexcept>
 
-namespace flexitask {
+namespace hardcilk {
 
 void MemParams::toArgParser(ArgParser& argParser) && {
     if (prefix.empty())
@@ -27,4 +27,4 @@ MemParams MemParams::fromContext(const std::string& prefix, Context const& conte
     };
 }
 
-} /* namespace flexitask */
+} /* namespace hardcilk */

@@ -1001,7 +1001,7 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/home/devel/repos/jnbrq/systemc_helpers/examples/FlexiTask/simulations/paper_exp1/hdl"
+    "targetDir":"/home/devel/repos/jnbrq/systemc_helpers/examples/HardCilk/simulations/paper_exp1/hdl"
   },
   {
     "class":"firrtl.transforms.CombinationalPath",

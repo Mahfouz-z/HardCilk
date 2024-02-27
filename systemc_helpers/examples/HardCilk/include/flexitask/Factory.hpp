@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_FACTORY_HPP_INCLUDED
-#define FLEXITASK_FACTORY_HPP_INCLUDED
+#ifndef HARDCILK_FACTORY_HPP_INCLUDED
+#define HARDCILK_FACTORY_HPP_INCLUDED
 
 #include <sctlm/tlm_lib/tlm_module.hpp>
 #include <util/factory.hpp>
@@ -7,10 +7,10 @@
 #include <tuple>
 #include <unordered_map>
 
-#include <flexitask/Context.hpp>
-#include <flexitask/Desc.hpp>
+#include <hardcilk/Context.hpp>
+#include <hardcilk/Desc.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 
 struct Top;
 
@@ -71,6 +71,6 @@ private:
     desc::FlexiTaskSystem* hardwareDescription_ { nullptr };
 };
 
-} // namespace flexitask
+} // namespace hardcilk
 
-#endif /* FLEXITASK_FACTORY_HPP_INCLUDED */
+#endif /* HARDCILK_FACTORY_HPP_INCLUDED */

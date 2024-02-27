@@ -1,10 +1,10 @@
-#include <flexitask/Factory.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/Factory.hpp>
+#include <hardcilk/Top.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 
 Factory::Factory() {
     add<Top(const char*, Context&)>("@top");
 }
 
-} /* namespace flexitask */
+} /* namespace hardcilk */

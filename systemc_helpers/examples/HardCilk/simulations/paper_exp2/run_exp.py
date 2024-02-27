@@ -1,4 +1,4 @@
-from flexitask.exp import EntryBase, Experiment, Simulation, Context
+from hardcilk.exp import EntryBase, Experiment, Simulation, Context
 
 SIMULATION_NAME = "paper_exp2"
 GROUP_NAMES = ["paper_exp2_effficiency", "paper_exp2_scalability", "paper_exp2_argServers"]

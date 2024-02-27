@@ -4,7 +4,7 @@ source ../common/generate_common.sh
 JSON=paper_exp3.json
 NAMESPACE=paper_exp3
 
-flexitask wrapper_verilog \
+hardcilk wrapper_verilog \
     --input-json $JSON \
     --output-hdl hdl/ \
     --output-cpp src/verilated.cpp \

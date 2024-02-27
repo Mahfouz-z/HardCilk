@@ -1,8 +1,8 @@
-#include <flexitask/ArgParser.hpp>
-#include <flexitask/Context.hpp>
-#include <flexitask/Factory.hpp>
-#include <flexitask/Processor.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/ArgParser.hpp>
+#include <hardcilk/Context.hpp>
+#include <hardcilk/Factory.hpp>
+#include <hardcilk/Processor.hpp>
+#include <hardcilk/Top.hpp>
 
 #include <fmt/core.h>
 
@@ -14,7 +14,7 @@
 
 using namespace sc_core;
 using namespace sc_dt;
-using namespace flexitask;
+using namespace hardcilk;
 
 int sc_main(int argc, char* argv[]) {
 #ifdef VERILATED_TRACE_ENABLED
@@ -42,7 +42,7 @@ int sc_main(int argc, char* argv[]) {
     auto& factory = fibonacci::factories[context.get<unsigned int>("factoryIndex")];
 
     context.set<Factory*>("factory", &factory);
-    context.set<flexitask::desc::FlexiTaskSystem*>("description", factory.hardwareDescription());
+    context.set<hardcilk::desc::FlexiTaskSystem*>("description", factory.hardwareDescription());
 
     auto top = factory.instantiateTop("top", context);
 

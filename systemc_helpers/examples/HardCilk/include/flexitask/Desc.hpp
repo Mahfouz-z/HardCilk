@@ -1,8 +1,8 @@
-#ifndef FLEXITASK_DESC_HPP_INCLUDED
-#define FLEXITASK_DESC_HPP_INCLUDED
+#ifndef HARDCILK_DESC_HPP_INCLUDED
+#define HARDCILK_DESC_HPP_INCLUDED
 
-// #include <flexitask/modules/VirtualContinuationAddressServer.hpp>
-// #include <flexitask/modules/VirtualStealServer.hpp>
+// #include <hardcilk/modules/VirtualContinuationAddressServer.hpp>
+// #include <hardcilk/modules/VirtualStealServer.hpp>
 
 #include <map>
 #include <utility>
@@ -11,7 +11,7 @@
 
 #include <sctlm/defs.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 namespace desc {
 
 using size_type = std::uint64_t;
@@ -164,4 +164,4 @@ struct FlexiTaskSystem {
 }
 }
 
-#endif /* FLEXITASK_DESC_HPP_INCLUDED */
+#endif /* HARDCILK_DESC_HPP_INCLUDED */

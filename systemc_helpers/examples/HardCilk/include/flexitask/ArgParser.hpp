@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_ARGPARSER_HPP_INCLUDED
-#define FLEXITASK_ARGPARSER_HPP_INCLUDED
+#ifndef HARDCILK_ARGPARSER_HPP_INCLUDED
+#define HARDCILK_ARGPARSER_HPP_INCLUDED
 
 #include <boost/program_options.hpp>
 
@@ -7,9 +7,9 @@
 #include <iostream>
 #include <string>
 
-#include <flexitask/Context.hpp>
+#include <hardcilk/Context.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 
 namespace detail {
 
@@ -74,6 +74,6 @@ private:
 
 using detail::ArgParser;
 
-} /* namespace flexitask */
+} /* namespace hardcilk */
 
 #endif /* ARGPARSER_HPP_INCLUDED */

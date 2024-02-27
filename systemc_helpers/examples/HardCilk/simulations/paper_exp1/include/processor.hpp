@@ -1,12 +1,12 @@
 #ifndef PAPER_EXP1_INCLUDE_PROCESSOR_HPP_INCLUDED
 #define PAPER_EXP1_INCLUDE_PROCESSOR_HPP_INCLUDED
 
-#include <flexitask/Processor.hpp>
+#include <hardcilk/Processor.hpp>
 
 namespace paper_exp1 {
 
-struct Processor : flexitask::Processor {
-    using flexitask::Processor::Processor;
+struct Processor : hardcilk::Processor {
+    using hardcilk::Processor::Processor;
 
 protected:
     void setup() override;

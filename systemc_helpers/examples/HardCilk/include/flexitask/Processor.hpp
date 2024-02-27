@@ -9,13 +9,13 @@
 #include <sctlm/tlm_lib/drivers/memory.hpp>
 #include <sctlm/tlm_lib/tlm_module.hpp>
 
-#include <flexitask/Allocator.hpp>
-#include <flexitask/Desc.hpp>
-#include <flexitask/Context.hpp>
-#include <flexitask/hal/VirtualContinuationAddressServer.hpp>
-#include <flexitask/hal/VirtualStealServer.hpp>
+#include <hardcilk/Allocator.hpp>
+#include <hardcilk/Desc.hpp>
+#include <hardcilk/Context.hpp>
+#include <hardcilk/hal/VirtualContinuationAddressServer.hpp>
+#include <hardcilk/hal/VirtualStealServer.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 
 namespace drivers = sctlm::tlm_lib::drivers;
 
@@ -70,6 +70,6 @@ protected:
     virtual void setup();
 };
 
-} /* namespace flexitask */
+} /* namespace hardcilk */
 
 #endif /* PROCESSOR_HPP_INCLUDED */

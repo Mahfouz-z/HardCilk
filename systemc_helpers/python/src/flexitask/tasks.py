@@ -79,7 +79,7 @@ class WrapperTask(Task):
 
     @staticmethod
     def parse(argv: List[str]) -> "WrapperTask":
-        p = argparse.ArgumentParser(prog="flexitask wrapper")
+        p = argparse.ArgumentParser(prog="hardcilk wrapper")
         # fmt: off
         p.add_argument("--input-json", help="Path to the input json file.", required=False)
         p.add_argument("--input-txt", help="Path to the input txt file.", required=False)
@@ -87,7 +87,7 @@ class WrapperTask(Task):
         p.add_argument("--output-cpp", help="Output cpp file.", required=False)
         p.add_argument("--output-hpp", help="Output hpp file.", required=False)
         p.add_argument("--output", help="Base for both cpp and hpp outputs.", required=False)
-        p.add_argument("--namespace", help="Namespace of the output file.", default="flexitask::generated", required=False)
+        p.add_argument("--namespace", help="Namespace of the output file.", default="hardcilk::generated", required=False)
         p.add_argument("--module-name", help="Name of the Verilator module (starts with V, usually).", default="VfullSysGen", required=False)
         p.add_argument("--class-name", help="Name of the generated classes.", default="FullSystem", required=False)
         p.add_argument("--verilated-trace-macro", help="Name of the preprocessor macro to enable/disable tracing.", default="{}_TRACE_ENABLED", required=False)
@@ -148,7 +148,7 @@ class VerilogTask(Task):
 
     @staticmethod
     def parse(argv: List[str]) -> "VerilogTask":
-        p = argparse.ArgumentParser(prog="flexitask verilog")
+        p = argparse.ArgumentParser(prog="hardcilk verilog")
         # fmt: off
         p.add_argument("--input-json", help="Path to the input json file.", required=True)
         p.add_argument("--output-hdl", help="Path to the output Verilog files.", required=True)
@@ -212,14 +212,14 @@ class WrapperVerilogTask(Task):
 
     @staticmethod
     def parse(argv: List[str]) -> "WrapperVerilogTask":
-        p = argparse.ArgumentParser(prog="flexitask wrapper_verilog")
+        p = argparse.ArgumentParser(prog="hardcilk wrapper_verilog")
         # fmt: off
         p.add_argument("--input-json", help="Path to the input json file.", required=True)
         p.add_argument("--output-hdl", help="Path to the output Verilog files.", required=True)
         p.add_argument("--output-base", help="Base for both cpp and hpp outputs.", required=False)
         p.add_argument("--output-cpp", help="Output cpp file (for wrapper).", required=False)
         p.add_argument("--output-hpp", help="Output hpp file (for wrapper).", required=False)
-        p.add_argument("--namespace", help="Namespace of the output file.", default="flexitask::generated", required=False)
+        p.add_argument("--namespace", help="Namespace of the output file.", default="hardcilk::generated", required=False)
         p.add_argument("--class-name", help="Name of the generated classes.", default="FullSystem", required=False)
         p.add_argument("--verilated-trace-macro", help="Name of the preprocessor macro to enable/disable tracing.", default="{}_TRACE_ENABLED", required=False)
         # fmt: on
@@ -250,7 +250,7 @@ class WrapperVerilogTask(Task):
 
 def run(argv: List[str] = sys.argv) -> None:
     if len(argv) < 2:
-        print("Usage: python3 -m flexitask TASK_NAME")
+        print("Usage: python3 -m hardcilk TASK_NAME")
         print("")
         print("Registered tasks:")
         for taskName in TASKS.keys():

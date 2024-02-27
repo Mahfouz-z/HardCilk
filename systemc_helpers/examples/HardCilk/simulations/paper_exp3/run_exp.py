@@ -1,4 +1,4 @@
-from flexitask.exp import EntryBase, Experiment, Simulation, Context
+from hardcilk.exp import EntryBase, Experiment, Simulation, Context
 
 try:
     import matplotlib.pyplot as plt

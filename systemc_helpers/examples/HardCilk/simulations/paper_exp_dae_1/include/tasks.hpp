@@ -1,16 +1,16 @@
-#ifndef FLEXITASK_SIMULATION_PAPER_EXP_DAE_1_TASKS_HPP_INCLUDED
-#define FLEXITASK_SIMULATION_PAPER_EXP_DAE_1_TASKS_HPP_INCLUDED
+#ifndef HARDCILK_SIMULATION_PAPER_EXP_DAE_1_TASKS_HPP_INCLUDED
+#define HARDCILK_SIMULATION_PAPER_EXP_DAE_1_TASKS_HPP_INCLUDED
 
-#include <flexitask/Defs.hpp>
-#include <flexitask/Graph.hpp>
+#include <hardcilk/Defs.hpp>
+#include <hardcilk/Graph.hpp>
 
 #include <fmt/format.h>
 #include <sstream>
 
-#define FLEXITASK_DECLARE_STR() \
+#define HARDCILK_DECLARE_STR() \
     std::string str() const;
 
-#define FLEXITASK_DEFINE_STR(type)          \
+#define HARDCILK_DEFINE_STR(type)          \
     inline std::string type ::str() const { \
         std::ostringstream oss;             \
         oss << *this;                       \
@@ -19,18 +19,18 @@
 
 namespace paper_exp_dae_1 {
 
-using flexitask::graph::node;
+using hardcilk::graph::node;
 
 struct task_access {
     node* n_ptr;
 
-    FLEXITASK_DECLARE_STR();
+    HARDCILK_DECLARE_STR();
 };
 
 struct task_execute {
     node* n_ptr;
 
-    FLEXITASK_DECLARE_STR();
+    HARDCILK_DECLARE_STR();
 };
 
 /* SystemC FIFO requires following operators. */
@@ -40,15 +40,15 @@ inline std::ostream& operator<<(std::ostream& os, task_access const& access) {
     return os;
 }
 
-FLEXITASK_DEFINE_STR(task_access);
+HARDCILK_DEFINE_STR(task_access);
 
 inline std::ostream& operator<<(std::ostream& os, task_execute const& execute) {
     os << fmt::format("task_execute(n = 0x{:08x} [{}])", (std::uint64_t)execute.n_ptr, execute.n_ptr->str());
     return os;
 }
 
-FLEXITASK_DEFINE_STR(task_execute);
+HARDCILK_DEFINE_STR(task_execute);
 
 } /* namespace paper_exp_dae_1 */
 
-#endif /* FLEXITASK_SIMULATION_PAPER_EXP_DAE_1_TASKS_HPP_INCLUDED */
+#endif /* HARDCILK_SIMULATION_PAPER_EXP_DAE_1_TASKS_HPP_INCLUDED */

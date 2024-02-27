@@ -10,9 +10,9 @@
 
 #include <fmt/core.h>
 
-#include <flexitask/Defs.hpp>
-#include <flexitask/Desc.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/Defs.hpp>
+#include <hardcilk/Desc.hpp>
+#include <hardcilk/Top.hpp>
 
 #include "tasks.hpp"
 
@@ -30,9 +30,9 @@ struct pe_execute : sc_core::sc_module, sctlm::tlm_lib::tlm_module {
     drivers::stream_sink taskIn { "taskIn", 1 };
     drivers::stream_source taskOut { "taskOut" };
 
-    flexitask::Context& context;
+    hardcilk::Context& context;
 
-    pe_execute(sc_core::sc_module_name const& module_name, flexitask::Context& context)
+    pe_execute(sc_core::sc_module_name const& module_name, hardcilk::Context& context)
         : sc_core::sc_module(module_name)
         , context { context } {
         set("reset", reset);

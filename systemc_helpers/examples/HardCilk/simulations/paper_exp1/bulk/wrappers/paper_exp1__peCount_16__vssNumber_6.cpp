@@ -976,8 +976,8 @@ void paper_exp1__peCount_16__vssNumber_6::do_init_()
     set("description", description);
 }
 
-flexitask::desc::FlexiTaskSystem paper_exp1__peCount_16__vssNumber_6::description = [] {
-    using namespace flexitask::desc;
+hardcilk::desc::FlexiTaskSystem paper_exp1__peCount_16__vssNumber_6::description = [] {
+    using namespace hardcilk::desc;
     auto description = FlexiTaskSystem{
         .tasks = []() {
             std::map<std::string, Task> r;

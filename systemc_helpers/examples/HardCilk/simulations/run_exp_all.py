@@ -1,4 +1,4 @@
-from flexitask.exp import BulkEntryBase, Context
+from hardcilk.exp import BulkEntryBase, Context
 
 
 class BulkEntry(BulkEntryBase):

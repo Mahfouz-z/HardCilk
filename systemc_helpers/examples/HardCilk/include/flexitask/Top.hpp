@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_TOP_HPP_INCLUDED
-#define FLEXITASK_TOP_HPP_INCLUDED
+#ifndef HARDCILK_TOP_HPP_INCLUDED
+#define HARDCILK_TOP_HPP_INCLUDED
 
 #include <systemc>
 
@@ -8,9 +8,9 @@
 
 #include <sctlm/tlm_lib/tlm_module.hpp>
 
-#include <flexitask/Context.hpp>
+#include <hardcilk/Context.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 
 struct Top : sc_core::sc_module, sctlm::tlm_lib::tlm_module {
     SC_HAS_PROCESS(Top);
@@ -38,6 +38,6 @@ private:
     std::vector<std::unique_ptr<sc_core::sc_module>> modules_;
 };
 
-} /* namespace flexitask */
+} /* namespace hardcilk */
 
-#endif /* FLEXITASK_TOP_HPP_INCLUDED */
+#endif /* HARDCILK_TOP_HPP_INCLUDED */

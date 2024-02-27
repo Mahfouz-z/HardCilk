@@ -487,19 +487,19 @@ def to_module(flexiTaskSystem: FlexiTaskSystem, moduleOptions: ModuleOptions) ->
     module.export("reset")
     module.export("description")
 
-    module.add_include("<flexitask/Desc.hpp>", is_hpp=True, is_cpp=False)
+    module.add_include("<hardcilk/Desc.hpp>", is_hpp=True, is_cpp=False)
 
-    module.class_extra_hpp.append("static flexitask::desc::FlexiTaskSystem description;")
+    module.class_extra_hpp.append("static hardcilk::desc::FlexiTaskSystem description;")
 
     dumper = util.Dumper()
     
     dumper.indent()
-    dumper.writeln(f"flexitask::desc::FlexiTaskSystem {module.name}::description = [] {{")
+    dumper.writeln(f"hardcilk::desc::FlexiTaskSystem {module.name}::description = [] {{")
 
     dumper.indent_in()
 
     dumper.indent()
-    dumper.writeln("using namespace flexitask::desc;")
+    dumper.writeln("using namespace hardcilk::desc;")
 
     cpp_dumper = cpp_dump.Dumper("    ")
     cpp_dumper.indent_in() # to match the indentation of the other module

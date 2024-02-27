@@ -1,14 +1,14 @@
-#ifndef FLEXITASK_MEMPARAMS_HPP_INCLUDED
-#define FLEXITASK_MEMPARAMS_HPP_INCLUDED
+#ifndef HARDCILK_MEMPARAMS_HPP_INCLUDED
+#define HARDCILK_MEMPARAMS_HPP_INCLUDED
 
-#include <flexitask/ArgParser.hpp>
-#include <flexitask/Context.hpp>
+#include <hardcilk/ArgParser.hpp>
+#include <hardcilk/Context.hpp>
 
 #include <string>
 
 #include <systemc>
 
-namespace flexitask {
+namespace hardcilk {
 
 /**
  * @brief Stores memory-related parameters.
@@ -27,6 +27,6 @@ struct MemParams {
     static MemParams fromContext(const std::string& prefix, Context const& context);
 };
 
-} /* namespace flexitask */
+} /* namespace hardcilk */
 
-#endif /* FLEXITASK_MEMPARAMS_HPP_INCLUDED */
+#endif /* HARDCILK_MEMPARAMS_HPP_INCLUDED */

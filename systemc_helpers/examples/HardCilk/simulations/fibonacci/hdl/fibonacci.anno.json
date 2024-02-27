@@ -1227,7 +1227,7 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/home/devel/repos/jnbrq/systemc_helpers/examples/FlexiTask/simulations/fibonacci/hdl"
+    "targetDir":"/home/devel/repos/jnbrq/systemc_helpers/examples/HardCilk/simulations/fibonacci/hdl"
   },
   {
     "class":"firrtl.transforms.CombinationalPath",

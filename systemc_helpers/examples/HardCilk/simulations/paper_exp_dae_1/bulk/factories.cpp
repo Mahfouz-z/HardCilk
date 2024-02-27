@@ -13,9 +13,9 @@
 namespace paper_exp_dae_1
 {
 
-flexitask::Factory factories[4] = {
+hardcilk::Factory factories[4] = {
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::paper_exp_dae_1__peCountAccess_1__vssNumberAccess_1__peCountExecute_1__vssNumberExecute_1>();
         factory.registerProcessor<paper_exp_dae_1::Processor>();
         factory.registerProcessingElement<paper_exp_dae_1::pe_access>("access_pe");
@@ -23,7 +23,7 @@ flexitask::Factory factories[4] = {
         return factory;
     }(),
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::paper_exp_dae_1__peCountAccess_1__vssNumberAccess_1__peCountExecute_2__vssNumberExecute_1>();
         factory.registerProcessor<paper_exp_dae_1::Processor>();
         factory.registerProcessingElement<paper_exp_dae_1::pe_access>("access_pe");
@@ -31,7 +31,7 @@ flexitask::Factory factories[4] = {
         return factory;
     }(),
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::paper_exp_dae_1__peCountAccess_1__vssNumberAccess_1__peCountExecute_4__vssNumberExecute_1>();
         factory.registerProcessor<paper_exp_dae_1::Processor>();
         factory.registerProcessingElement<paper_exp_dae_1::pe_access>("access_pe");
@@ -39,7 +39,7 @@ flexitask::Factory factories[4] = {
         return factory;
     }(),
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::paper_exp_dae_1__peCountAccess_1__vssNumberAccess_1__peCountExecute_8__vssNumberExecute_1>();
         factory.registerProcessor<paper_exp_dae_1::Processor>();
         factory.registerProcessingElement<paper_exp_dae_1::pe_access>("access_pe");

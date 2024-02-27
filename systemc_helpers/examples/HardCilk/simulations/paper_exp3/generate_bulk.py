@@ -72,7 +72,7 @@ def getHardwareConfiguration(
 
 def main() -> None:
     init()
-    from flexitask import bulk
+    from hardcilk import bulk
 
     hwConfs = bulk.HardwareConfigurations()
 

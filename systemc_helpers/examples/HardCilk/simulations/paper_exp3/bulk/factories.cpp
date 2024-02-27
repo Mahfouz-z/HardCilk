@@ -10,9 +10,9 @@
 namespace paper_exp3
 {
 
-flexitask::Factory factories[1] = {
+hardcilk::Factory factories[1] = {
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::paper_exp3__peCount1_12__vssNumber1_2__peCount2_12__vssNumber2_2>();
         factory.registerProcessor<paper_exp3::Processor>();
         factory.registerProcessingElement<paper_exp3::task1Exp3_pe>("task1Exp3_pe");

@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_SIMULATION_PAPER_EXP3_TASK1_EXP3_PE_HPP_INCLUDED
-#define FLEXITASK_SIMULATION_PAPER_EXP3_TASK1_EXP3_PE_HPP_INCLUDED
+#ifndef HARDCILK_SIMULATION_PAPER_EXP3_TASK1_EXP3_PE_HPP_INCLUDED
+#define HARDCILK_SIMULATION_PAPER_EXP3_TASK1_EXP3_PE_HPP_INCLUDED
 
 #include <systemc>
 #include <tlm>
@@ -10,9 +10,9 @@
 
 #include <fmt/core.h>
 
-#include <flexitask/Defs.hpp>
-#include <flexitask/Desc.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/Defs.hpp>
+#include <hardcilk/Desc.hpp>
+#include <hardcilk/Top.hpp>
 
 #include "tasks.hpp"
 
@@ -31,9 +31,9 @@ struct task1Exp3_pe : sc_core::sc_module, sctlm::tlm_lib::tlm_module {
     drivers::stream_source taskOut { "taskOut" };
     drivers::stream_source taskOut_task2Exp3 { "taskOut_task2Exp3" };
 
-    flexitask::Context& context;
+    hardcilk::Context& context;
 
-    task1Exp3_pe(sc_core::sc_module_name const& module_name, flexitask::Context& context)
+    task1Exp3_pe(sc_core::sc_module_name const& module_name, hardcilk::Context& context)
         : sc_core::sc_module(module_name)
         , context { context }
         , fifo_0_to_1 { "fifo_0_to_1", 5 }
@@ -70,4 +70,4 @@ private:
 
 } /* namespace paper_exp3 */
 
-#endif /* FLEXITASK_SIMULATION_PAPER_EXP3_TASK1_EXP3_PE_HPP_INCLUDED */
+#endif /* HARDCILK_SIMULATION_PAPER_EXP3_TASK1_EXP3_PE_HPP_INCLUDED */

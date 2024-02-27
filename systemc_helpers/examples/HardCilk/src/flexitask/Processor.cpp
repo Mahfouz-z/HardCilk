@@ -1,13 +1,13 @@
-#include <flexitask/Allocator.hpp>
-#include <flexitask/Defs.hpp>
-#include <flexitask/MemoryInterface.hpp>
-#include <flexitask/Processor.hpp>
+#include <hardcilk/Allocator.hpp>
+#include <hardcilk/Defs.hpp>
+#include <hardcilk/MemoryInterface.hpp>
+#include <hardcilk/Processor.hpp>
 
 #include <sctlm/tlm_lib/modules/memory.hpp>
 
 #include <fmt/core.h>
 
-namespace flexitask {
+namespace hardcilk {
 
 void Processor::thread() {
     auto const& desc = *context.get<desc::FlexiTaskSystem*>("description");
@@ -64,4 +64,4 @@ void Processor::setup() {
     }
 }
 
-} /* namespace flexitask */
+} /* namespace hardcilk */

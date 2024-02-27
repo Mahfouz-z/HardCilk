@@ -1617,7 +1617,7 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/home/devel/repos/jnbrq/systemc_helpers/examples/FlexiTask/simulations/fibonacci/bulk/hdl/fibonacci__peCountFib_8__peCountSum_8"
+    "targetDir":"/home/devel/repos/jnbrq/systemc_helpers/examples/HardCilk/simulations/fibonacci/bulk/hdl/fibonacci__peCountFib_8__peCountSum_8"
   },
   {
     "class":"firrtl.transforms.CombinationalPath",

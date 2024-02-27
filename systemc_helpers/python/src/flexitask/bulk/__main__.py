@@ -2,7 +2,7 @@ from . import *
 
 
 def main() -> None:
-    print("flexitask.bulk test")
+    print("hardcilk.bulk test")
 
     import copy
 

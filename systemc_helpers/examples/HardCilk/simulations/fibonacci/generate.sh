@@ -4,7 +4,7 @@ source ../common/generate_common.sh
 JSON=fibonacci.json
 NAMESPACE=fibonacci
 
-flexitask wrapper_verilog \
+hardcilk wrapper_verilog \
     --input-json $JSON \
     --output-hdl hdl/ \
     --output-cpp src/verilated.cpp \

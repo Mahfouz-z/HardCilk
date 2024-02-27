@@ -1,15 +1,15 @@
-#ifndef FLEXITASK_MEMORYINTERFACE_HPP_INCLUDED
-#define FLEXITASK_MEMORYINTERFACE_HPP_INCLUDED
+#ifndef HARDCILK_MEMORYINTERFACE_HPP_INCLUDED
+#define HARDCILK_MEMORYINTERFACE_HPP_INCLUDED
 
-#if defined(FLEXITASK_SYSTEMC)
+#if defined(HARDCILK_SYSTEMC)
 #    include <sctlm/tlm_lib/drivers/memory.hpp>
-#elif defined(FLEXITASK_MICROBLAZE32) || defined(FLEXITASK_MICROBLAZE32)
+#elif defined(HARDCILK_MICROBLAZE32) || defined(HARDCILK_MICROBLAZE32)
 #    include <xil_io.h>
 #endif
 
-namespace flexitask {
+namespace hardcilk {
 
-#if defined(FLEXITASK_SYSTEMC)
+#if defined(HARDCILK_SYSTEMC)
 
 struct SystemcMemoryInterface {
     using memory_interface = sctlm::tlm_lib::drivers::memory_interface;
@@ -41,7 +41,7 @@ private:
 
 using DefaultMemoryInterface = SystemcMemoryInterface;
 
-#elif defined(FLEXITASK_MICROBLAZE32) || defined(FLEXITASK_MICROBLAZE32)
+#elif defined(HARDCILK_MICROBLAZE32) || defined(HARDCILK_MICROBLAZE32)
 
 struct MicroblazeMemoryInterface {
     uint32_t read32(addr_type addr) const noexcept {
@@ -67,4 +67,4 @@ using DefaultMemoryInterface = SystemcMemoryInterface;
 
 }
 
-#endif /* FLEXITASK_MEMORYINTERFACE_HPP_INCLUDED */
+#endif /* HARDCILK_MEMORYINTERFACE_HPP_INCLUDED */

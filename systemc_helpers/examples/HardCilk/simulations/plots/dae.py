@@ -1,4 +1,4 @@
-from flexitask.exp import BulkEntryBase, Context, ExperimentWrapper
+from hardcilk.exp import BulkEntryBase, Context, ExperimentWrapper
 from functools import cache
 from typing import *  # type: ignore
 

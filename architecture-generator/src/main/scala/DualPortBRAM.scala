@@ -32,7 +32,7 @@ class DualPortBRAM(addrBits: Int, dataBits: Int) extends BlackBox (Map( "DATA" -
   val io = IO(new DualPortBRAMIO(addrBits, dataBits))
 
   /** @todo Get the generation type as a constructor parameter, not from the environment. */
-  private val generationType = sys.env.getOrElse("FLEXITASK_GENERATION_TYPE", "Simulation")
+  private val generationType = sys.env.getOrElse("HARDCILK_GENERATION_TYPE", "Simulation")
 
   assert(generationType == "Simulation" || generationType == "Synthesis")
 

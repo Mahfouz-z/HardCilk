@@ -1,7 +1,7 @@
-#ifndef FLEXITASK_SIMULATION_PAPER_EXP3_TASKS_HPP_INCLUDED
-#define FLEXITASK_SIMULATION_PAPER_EXP3_TASKS_HPP_INCLUDED
+#ifndef HARDCILK_SIMULATION_PAPER_EXP3_TASKS_HPP_INCLUDED
+#define HARDCILK_SIMULATION_PAPER_EXP3_TASKS_HPP_INCLUDED
 
-#include <flexitask/Defs.hpp>
+#include <hardcilk/Defs.hpp>
 
 namespace paper_exp3{
 
@@ -25,4 +25,4 @@ inline std::ostream& operator<<(std::ostream& os, const task_task2Exp3&) {
 
 } /* namespace paper_exp3 */
 
-#endif /* FLEXITASK_SIMULATION_PAPER_EXP3_TASKS_HPP_INCLUDED */
+#endif /* HARDCILK_SIMULATION_PAPER_EXP3_TASKS_HPP_INCLUDED */

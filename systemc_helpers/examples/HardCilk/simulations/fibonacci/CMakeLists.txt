@@ -22,5 +22,5 @@ config_bulk(${SIM_TARGET})
 
 target_compile_definitions(${SIM_TARGET} PUBLIC VERILATED_TRACE_ENABLED)
 target_include_directories(${SIM_TARGET} PUBLIC include/)
-target_link_libraries(${SIM_TARGET} PUBLIC flexitask sctlm fmt::fmt)
+target_link_libraries(${SIM_TARGET} PUBLIC hardcilk sctlm fmt::fmt)
 verilator_link_systemc(${SIM_TARGET})

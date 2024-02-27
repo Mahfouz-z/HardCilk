@@ -1,8 +1,8 @@
-#include <flexitask/ArgParser.hpp>
-#include <flexitask/Context.hpp>
-#include <flexitask/Graph.hpp>
-#include <flexitask/MemParams.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/ArgParser.hpp>
+#include <hardcilk/Context.hpp>
+#include <hardcilk/Graph.hpp>
+#include <hardcilk/MemParams.hpp>
+#include <hardcilk/Top.hpp>
 
 #include <fmt/core.h>
 
@@ -14,7 +14,7 @@
 
 using namespace sc_core;
 using namespace sc_dt;
-using namespace flexitask;
+using namespace hardcilk;
 
 int sc_main(int argc, char* argv[]) {
 #ifdef VERILATED_TRACE_ENABLED
@@ -53,7 +53,7 @@ int sc_main(int argc, char* argv[]) {
     auto& factory = paper_exp_dae_0::factories[context.get<unsigned int>("factoryIndex")];
 
     context.set<Factory*>("factory", &factory);
-    auto const& hwConf = *context.set<flexitask::desc::FlexiTaskSystem*>("description", factory.hardwareDescription());
+    auto const& hwConf = *context.set<hardcilk::desc::FlexiTaskSystem*>("description", factory.hardwareDescription());
 
     auto peCount = hwConf.tasks.at("execute").numProcessingElements;
 

@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_CONTEXT_HPP_INCLUDED
-#define FLEXITASK_CONTEXT_HPP_INCLUDED
+#ifndef HARDCILK_CONTEXT_HPP_INCLUDED
+#define HARDCILK_CONTEXT_HPP_INCLUDED
 
 #include <any>
 #include <fmt/core.h>
@@ -7,7 +7,7 @@
 #include <string>
 #include <unordered_map>
 
-namespace flexitask {
+namespace hardcilk {
 
 /**
  * @brief Context class is used to pass information between the components
@@ -64,6 +64,6 @@ private:
     std::unordered_map<std::string, std::any> map_;
 };
 
-} /* namespace flexitask */
+} /* namespace hardcilk */
 
-#endif /* FLEXITASK_CONTEXT_HPP_INCLUDED */
+#endif /* HARDCILK_CONTEXT_HPP_INCLUDED */

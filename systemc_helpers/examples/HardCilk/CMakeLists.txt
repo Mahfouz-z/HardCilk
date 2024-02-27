@@ -1,6 +1,6 @@
 # See the source code: https://github.com/antmicro/verilator-1/blob/master/examples/cmake_hello_c/CMakeLists.txt
 
-project(flexitask)
+project(hardcilk)
 
 SET(CMAKE_CXX_STANDARD 20)
 
@@ -27,17 +27,17 @@ target_link_libraries(sctlm PUBLIC fmt::fmt)
 find_package(Boost 1.70 COMPONENTS program_options REQUIRED)
 
 add_library(
-    flexitask
+    hardcilk
     STATIC
-    src/flexitask/Factory.cpp
-    src/flexitask/Abort.cpp
-    src/flexitask/Top.cpp
-    src/flexitask/Processor.cpp
-    src/flexitask/PerfFigures.cpp
-    src/flexitask/MemParams.cpp
+    src/hardcilk/Factory.cpp
+    src/hardcilk/Abort.cpp
+    src/hardcilk/Top.cpp
+    src/hardcilk/Processor.cpp
+    src/hardcilk/PerfFigures.cpp
+    src/hardcilk/MemParams.cpp
 )
-target_include_directories(flexitask PUBLIC include)
-target_link_libraries(flexitask PUBLIC sctlm Boost::boost Boost::program_options)
-target_compile_definitions(flexitask PUBLIC FLEXITASK_SYSTEMC)
+target_include_directories(hardcilk PUBLIC include)
+target_link_libraries(hardcilk PUBLIC sctlm Boost::boost Boost::program_options)
+target_compile_definitions(hardcilk PUBLIC HARDCILK_SYSTEMC)
 
 add_subdirectory(simulations/)

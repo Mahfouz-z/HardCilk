@@ -24,7 +24,7 @@
 #include <sctlm/tlm_lib/tlm_module.hpp>
 
 /* additional include directories */
-#include <flexitask/Desc.hpp>
+#include <hardcilk/Desc.hpp>
 
 
 /* Verilator-generated header */
@@ -65,7 +65,7 @@ struct paper_exp2__peCount_8__vssNumber_6__vcasNumber_1__arsNumber_8 :
     }
 #endif
     
-    static flexitask::desc::FlexiTaskSystem description;
+    static hardcilk::desc::FlexiTaskSystem description;
     
 
 private:

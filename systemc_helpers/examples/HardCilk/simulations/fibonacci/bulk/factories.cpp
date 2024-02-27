@@ -13,9 +13,9 @@
 namespace fibonacci
 {
 
-flexitask::Factory factories[4] = {
+hardcilk::Factory factories[4] = {
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::fibonacci__peCountFib_4__peCountSum_4>();
         factory.registerProcessor<fibonacci::Processor>();
         factory.registerProcessingElement<fibonacci::fib_pe>("fib_pe");
@@ -23,7 +23,7 @@ flexitask::Factory factories[4] = {
         return factory;
     }(),
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::fibonacci__peCountFib_8__peCountSum_8>();
         factory.registerProcessor<fibonacci::Processor>();
         factory.registerProcessingElement<fibonacci::fib_pe>("fib_pe");
@@ -31,7 +31,7 @@ flexitask::Factory factories[4] = {
         return factory;
     }(),
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::fibonacci__peCountFib_16__peCountSum_16>();
         factory.registerProcessor<fibonacci::Processor>();
         factory.registerProcessingElement<fibonacci::fib_pe>("fib_pe");
@@ -39,7 +39,7 @@ flexitask::Factory factories[4] = {
         return factory;
     }(),
     [] /* immediately invoked lambda expression */ {
-        flexitask::Factory factory;
+        hardcilk::Factory factory;
         factory.registerSystem<generated::fibonacci__peCountFib_32__peCountSum_32>();
         factory.registerProcessor<fibonacci::Processor>();
         factory.registerProcessingElement<fibonacci::fib_pe>("fib_pe");

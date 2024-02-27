@@ -117,9 +117,23 @@ RUN echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | sudo tee /etc/apt/
 RUN curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
 RUN sudo apt-get update && sudo apt-get install -y sbt openjdk-17-jdk
 
+# Install OpenCilk 
+RUN mkdir -p /home/$USERNAME/repos/OpenCilk
+RUN wget https://github.com/OpenCilk/opencilk-project/releases/download/opencilk/v2.1/opencilk-2.1.0-aarch64-linux-gnu-ubuntu-22.04.sh
+RUN sh opencilk-2.1.0-aarch64-linux-gnu-ubuntu-22.04.sh --prefix=/home/$USERNAME/repos/OpenCilk --skip-license
+RUN rm opencilk-2.1.0-aarch64-linux-gnu-ubuntu-22.04.sh
+
+# Install HardCilk
+RUN mkdir -p /home/$USERNAME/repos/HardCilk
+RUN git clone 
+
+
 WORKDIR /home/$USERNAME
 
 ENV SYSTEMC_INCLUDE="/usr/local/include"
 ENV SYSTEMC_LIBDIR="/usr/local/lib"
 ENV VERILATOR_ROOT="/usr/local"
 ENV XILINX_SYSTEMC_INCLUDE="/root/.local/include"
+# set clang path for openCilk clang
+ENV PATH="/home/$USERNAME/repos/OpenCilk/bin:${PATH}"
+

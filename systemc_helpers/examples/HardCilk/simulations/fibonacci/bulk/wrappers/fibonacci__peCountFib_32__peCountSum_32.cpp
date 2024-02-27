@@ -3624,8 +3624,8 @@ void fibonacci__peCountFib_32__peCountSum_32::do_init_()
     set("description", description);
 }
 
-flexitask::desc::FlexiTaskSystem fibonacci__peCountFib_32__peCountSum_32::description = [] {
-    using namespace flexitask::desc;
+hardcilk::desc::FlexiTaskSystem fibonacci__peCountFib_32__peCountSum_32::description = [] {
+    using namespace hardcilk::desc;
     auto description = FlexiTaskSystem{
         .tasks = []() {
             std::map<std::string, Task> r;

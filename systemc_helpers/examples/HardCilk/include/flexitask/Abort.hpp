@@ -1,13 +1,13 @@
-#ifndef FLEXITASK_ABORT_HPP_INCLUDED
-#define FLEXITASK_ABORT_HPP_INCLUDED
+#ifndef HARDCILK_ABORT_HPP_INCLUDED
+#define HARDCILK_ABORT_HPP_INCLUDED
 
-namespace flexitask {
+namespace hardcilk {
 
 void abort(const char* msg);
 
 }
 
-#define FLEXITASK_ABORT(msg) \
-    flexitask::abort(msg " (from " __FILE__ ":" STRINGIZE(__LINE__) ")")
+#define HARDCILK_ABORT(msg) \
+    hardcilk::abort(msg " (from " __FILE__ ":" STRINGIZE(__LINE__) ")")
 
-#endif /* FLEXITASK_ABORT_HPP_INCLUDED */
+#endif /* HARDCILK_ABORT_HPP_INCLUDED */

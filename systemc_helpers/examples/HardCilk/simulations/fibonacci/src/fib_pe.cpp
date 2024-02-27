@@ -17,11 +17,11 @@ void fib_pe::loop() {
             contOut_sum.write(task.returnAddress);
         }
     } else {
-       flexitask::addr_type returnAddress1, returnAddress2;
+       hardcilk::addr_type returnAddress1, returnAddress2;
 
         /* spawn_next */
         {
-            flexitask::addr_type contAddress = addrIn_sum.read<flexitask::addr_type>();
+            hardcilk::addr_type contAddress = addrIn_sum.read<hardcilk::addr_type>();
             sum_task new_task {
                 .counter = 2,
                 .padding = 0,

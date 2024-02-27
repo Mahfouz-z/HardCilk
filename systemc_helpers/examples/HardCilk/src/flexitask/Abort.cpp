@@ -1,20 +1,20 @@
-#include <flexitask/Abort.hpp>
+#include <hardcilk/Abort.hpp>
 
-#if defined(FLEXITASK_SYSTEMC)
+#if defined(HARDCILK_SYSTEMC)
 #    include <stdexcept>
-#elif defined(FLEXITASK_MICROBLAZE32) || defined(FLEXITASK_MICROBLAZE32)
+#elif defined(HARDCILK_MICROBLAZE32) || defined(HARDCILK_MICROBLAZE32)
 #    include <xil_printf.h>
 #endif
 
-namespace flexitask {
+namespace hardcilk {
 
-#if defined(FLEXITASK_SYSTEMC)
+#if defined(HARDCILK_SYSTEMC)
 
 void abort(const char* msg) {
     throw std::runtime_error(msg);
 }
 
-#elif defined(FLEXITASK_MICROBLAZE32) || defined(FLEXITASK_MICROBLAZE32)
+#elif defined(HARDCILK_MICROBLAZE32) || defined(HARDCILK_MICROBLAZE32)
 
 void abort(const char* msg) {
     xil_printf("Aborted: %s\n", msg);

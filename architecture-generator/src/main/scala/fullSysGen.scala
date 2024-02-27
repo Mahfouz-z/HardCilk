@@ -370,11 +370,11 @@ object CommandLineEmitter {
 object ServerEmitter extends App {
   strenc.Typed.registerUserType[fullSysGen]("fullSysGen.fullSysGen")
 
-  private val generationType = sys.env.getOrElse("FLEXITASK_GENERATION_TYPE", "Simulation")
-  private val portNumber = sys.env.getOrElse("FLEXITASK_GENERATION_PORT", "9215").toInt
+  private val generationType = sys.env.getOrElse("HARDCILK_GENERATION_TYPE", "Simulation")
+  private val portNumber = sys.env.getOrElse("HARDCILK_GENERATION_PORT", "9215").toInt
 
-  println(f"Generation type = ${generationType} (env: FLEXITASK_GENERATION_TYPE)")
-  println(f"Port number = ${portNumber} (env: FLEXITASK_GENERATION_PORT)")
+  println(f"Generation type = ${generationType} (env: HARDCILK_GENERATION_TYPE)")
+  println(f"Port number = ${portNumber} (env: HARDCILK_GENERATION_PORT)")
   
   val server = new chisel3.interface.net.Server(portNumber)
   

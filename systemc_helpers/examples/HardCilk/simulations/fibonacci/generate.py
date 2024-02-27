@@ -1,4 +1,4 @@
-import flexitask
+import hardcilk
 
 desc = {
     "fullSysGenName": "fibonacci",
@@ -50,20 +50,20 @@ desc = {
 
 
 def main() -> None:
-    connections = flexitask.hdl.emit_verilog(desc, "./hdl")
-    flexiTaskSystem = flexitask.wrapper.elaborate(
-        flexitask.wrapper.from_dict(desc),
+    connections = hardcilk.hdl.emit_verilog(desc, "./hdl")
+    flexiTaskSystem = hardcilk.wrapper.elaborate(
+        hardcilk.wrapper.from_dict(desc),
         connections
     )
 
-    moduleOptions = flexitask.wrapper.ModuleOptions(
+    moduleOptions = hardcilk.wrapper.ModuleOptions(
         moduleName="Vfibonacci",
         className="VerilatedTlmModule",
         namespace="fibonacci",
         hppInclude="\"verilated.hpp\""
     )
 
-    module = flexitask.wrapper.to_module(flexiTaskSystem, moduleOptions)
+    module = hardcilk.wrapper.to_module(flexiTaskSystem, moduleOptions)
     hpp, cpp = module.generate()
 
     with open("src/verilated.cpp", "w") as f:

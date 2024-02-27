@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_SIMULATION_FIBONACCI_FIB_PE_HPP_INCLUDED
-#define FLEXITASK_SIMULATION_FIBONACCI_FIB_PE_HPP_INCLUDED
+#ifndef HARDCILK_SIMULATION_FIBONACCI_FIB_PE_HPP_INCLUDED
+#define HARDCILK_SIMULATION_FIBONACCI_FIB_PE_HPP_INCLUDED
 
 #include <systemc>
 #include <tlm>
@@ -10,10 +10,10 @@
 
 #include <fmt/core.h>
 
-#include <flexitask/Context.hpp>
-#include <flexitask/Defs.hpp>
-#include <flexitask/Desc.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/Context.hpp>
+#include <hardcilk/Defs.hpp>
+#include <hardcilk/Desc.hpp>
+#include <hardcilk/Top.hpp>
 
 #include "tasks.hpp"
 
@@ -33,9 +33,9 @@ struct fib_pe : sc_core::sc_module, sctlm::tlm_lib::tlm_module {
     drivers::stream_sink addrIn_sum { "addrIn_sum", 1 };
     drivers::stream_source contOut_sum { "contOut_sum" };
 
-    flexitask::Context& context;
+    hardcilk::Context& context;
 
-    fib_pe(sc_core::sc_module_name const& module_name, flexitask::Context& context)
+    fib_pe(sc_core::sc_module_name const& module_name, hardcilk::Context& context)
         : sc_core::sc_module(module_name)
         , context { context } {
         set("reset", reset);
@@ -63,4 +63,4 @@ private:
 
 } /* namespace fibonacci */
 
-#endif /* FLEXITASK_SIMULATION_FIBONACCI_FIB_PE_HPP_INCLUDED */
+#endif /* HARDCILK_SIMULATION_FIBONACCI_FIB_PE_HPP_INCLUDED */

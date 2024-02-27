@@ -1,4 +1,4 @@
-from flexitask.exp import EntryBase, Experiment, Simulation, Context
+from hardcilk.exp import EntryBase, Experiment, Simulation, Context
 
 SIMULATION_NAME = "paper_exp_dae_0"
 GROUP_NAME = "paper_exp_dae_0"

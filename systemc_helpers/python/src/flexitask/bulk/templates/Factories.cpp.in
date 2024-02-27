@@ -12,7 +12,7 @@ namespace {{ factories.namespace }}
 
 {% endif -%}
 
-flexitask::Factory {{ factories.variableName }}[{{ factories|length }}] = {{ cpp_array }};
+hardcilk::Factory {{ factories.variableName }}[{{ factories|length }}] = {{ cpp_array }};
 
 {% if factories.namespace -%}
 } /* namespace {{ factories.namespace }} */

@@ -9,9 +9,9 @@
 
 #include <fmt/format.h>
 
-#include <flexitask/ArgParser.hpp>
+#include <hardcilk/ArgParser.hpp>
 
-namespace flexitask::graph {
+namespace hardcilk::graph {
 
 /**
  * @brief node is not stored in the system memory.
@@ -122,6 +122,6 @@ private:
     }
 };
 
-} /* namespace flexitask::graph */
+} /* namespace hardcilk::graph */
 
 #endif /* GRAPH_HPP_INCLUDED */

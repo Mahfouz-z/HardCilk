@@ -1,7 +1,7 @@
 from typing import *  # type: ignore
 from itertools import product
 import os
-import flexitask.hdl as hdl
+import hardcilk.hdl as hdl
 
 
 def init() -> None:
@@ -69,6 +69,6 @@ def main() -> None:
 if __name__ == "__main__":
     print("Please run this script from the $repo_root/synthesis directory!")
     print("Please note that the server should be executed in the Synthesis mode.")
-    print('Use the following command to do so: FLEXITASK_GENERATION_TYPE=Synthesis sbt "runMain fullSysGen.ServerEmitter"')
+    print('Use the following command to do so: HARDCILK_GENERATION_TYPE=Synthesis sbt "runMain fullSysGen.ServerEmitter"')
 
     main()

@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_ALLOCATOR_HPP_INCLUDED
-#define FLEXITASK_ALLOCATOR_HPP_INCLUDED
+#ifndef HARDCILK_ALLOCATOR_HPP_INCLUDED
+#define HARDCILK_ALLOCATOR_HPP_INCLUDED
 
 #include "Abort.hpp"
 #include "Defs.hpp"
@@ -7,7 +7,7 @@
 
 #include <utility>
 
-namespace flexitask {
+namespace hardcilk {
 
 /**
  * @brief Basic linear allocator.
@@ -36,7 +36,7 @@ struct LinearAllocator {
     }
 
     void deallocate(addr_type ptr) {
-        FLEXITASK_UNUSED(ptr);
+        HARDCILK_UNUSED(ptr);
 
         num_--;
 
@@ -92,11 +92,11 @@ struct WrappedPolymorphicAllocator : public PolymorphicAllocator, private Alloca
     }
 };
 
-using LinearAllocator = WrappedPolymorphicAllocator<flexitask::LinearAllocator>;
+using LinearAllocator = WrappedPolymorphicAllocator<hardcilk::LinearAllocator>;
 using PolymorphicAllocatorRef = AllocatorRef<PolymorphicAllocator>;
 
 }
 
 }
 
-#endif /* FLEXITASK_ALLOCATOR_HPP_INCLUDED */
+#endif /* HARDCILK_ALLOCATOR_HPP_INCLUDED */

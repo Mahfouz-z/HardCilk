@@ -1,4 +1,4 @@
-# Archhitecture Generator for FlexiTask
+# Archhitecture Generator for HardCilk
 
 ## Task Descriptors
 The /taskDescriptors directory should include the task descriptor for the generator to produce the architecture corresponding to the task parameters. The directory includes descriptor examples.

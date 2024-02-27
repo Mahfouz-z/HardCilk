@@ -1,5 +1,5 @@
-#ifndef FLEXITASK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
-#define FLEXITASK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
+#ifndef HARDCILK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
+#define HARDCILK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
 
 #include <systemc>
 #include <tlm>
@@ -10,9 +10,9 @@
 
 #include <fmt/core.h>
 
-#include <flexitask/Defs.hpp>
-#include <flexitask/Desc.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/Defs.hpp>
+#include <hardcilk/Desc.hpp>
+#include <hardcilk/Top.hpp>
 
 #include "tasks.hpp"
 
@@ -32,9 +32,9 @@ struct task_pe : sc_core::sc_module, sctlm::tlm_lib::tlm_module {
     drivers::stream_sink addrIn_task { "addrIn_task", 1 };
     drivers::stream_source contOut_task { "contOut_task" };
 
-    flexitask::Context& context;
+    hardcilk::Context& context;
 
-    task_pe(sc_core::sc_module_name const& module_name, flexitask::Context& context)
+    task_pe(sc_core::sc_module_name const& module_name, hardcilk::Context& context)
         : sc_core::sc_module(module_name)
         , context { context }
         , fifo_0_to_1 { "fifo0", 5 }
@@ -76,12 +76,12 @@ private:
 
 } /* namespace paper_exp2 */
 
-#endif /* FLEXITASK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED */
+#endif /* HARDCILK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED */
 
 // #ifndef CF3B62EA_A113_49A8_AEA2_78AD0D975ED1
 // #define CF3B62EA_A113_49A8_AEA2_78AD0D975ED1
-// #ifndef FLEXITASK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
-// #define FLEXITASK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
+// #ifndef HARDCILK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
+// #define HARDCILK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED
 
 // #include <systemc>
 // #include <tlm>
@@ -92,9 +92,9 @@ private:
 
 // #include <fmt/core.h>
 
-// #include <flexitask/Defs.hpp>
-// #include <flexitask/Desc.hpp>
-// #include <flexitask/Top.hpp>
+// #include <hardcilk/Defs.hpp>
+// #include <hardcilk/Desc.hpp>
+// #include <hardcilk/Top.hpp>
 // #include <mutex>
 
 // #include "tasks.hpp"
@@ -115,9 +115,9 @@ private:
 //     drivers::stream_sink addrIn_task { "addrIn_task", 1};
 //     drivers::stream_source contOut_task { "contOut_task" };
 
-//     flexitask::Top& top;
+//     hardcilk::Top& top;
 
-//     task_pe(sc_core::sc_module_name const& module_name, flexitask::Top& top)
+//     task_pe(sc_core::sc_module_name const& module_name, hardcilk::Top& top)
 //         : sc_core::sc_module(module_name)
 //         , top { top } {
 //         set("reset", reset);
@@ -152,6 +152,6 @@ private:
 
 // } /* namespace paper_exp2 */
 
-// #endif /* FLEXITASK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED */
+// #endif /* HARDCILK_SIMULATION_PAPER_EXP2_TASK_PE_HPP_INCLUDED */
 
 // #endif /* CF3B62EA_A113_49A8_AEA2_78AD0D975ED1 */

@@ -1,12 +1,12 @@
-#ifndef FLEXITASK_MODULES_VIRTUALSTEALSERVER_HPP_INCLUDED
-#define FLEXITASK_MODULES_VIRTUALSTEALSERVER_HPP_INCLUDED
+#ifndef HARDCILK_MODULES_VIRTUALSTEALSERVER_HPP_INCLUDED
+#define HARDCILK_MODULES_VIRTUALSTEALSERVER_HPP_INCLUDED
 
-#include <flexitask/Allocator.hpp>
-#include <flexitask/MemoryInterface.hpp>
+#include <hardcilk/Allocator.hpp>
+#include <hardcilk/MemoryInterface.hpp>
 
-#include <flexitask/Desc.hpp>
+#include <hardcilk/Desc.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 namespace hal {
 
 template<typename Allocator, typename MemoryInterface = DefaultMemoryInterface>
@@ -83,6 +83,6 @@ private:
 };
 
 } /* modules */
-} /* flexitask */
+} /* hardcilk */
 
-#endif /* FLEXITASK_MODULES_VIRTUALSTEALSERVER_HPP_INCLUDED */
+#endif /* HARDCILK_MODULES_VIRTUALSTEALSERVER_HPP_INCLUDED */

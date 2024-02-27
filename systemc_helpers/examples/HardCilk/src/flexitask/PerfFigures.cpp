@@ -1,7 +1,7 @@
-#include <flexitask/PerfFigures.hpp>
+#include <hardcilk/PerfFigures.hpp>
 #include <fmt/format.h>
 
-namespace flexitask {
+namespace hardcilk {
 
 PerfFigures PerfFigures::calculate(
     double T1,
@@ -40,4 +40,4 @@ std::ostream& operator<<(std::ostream& os, PerfFigures const& perfFigures) {
     return os;
 }
 
-} /* namespace flexitask */
+} /* namespace hardcilk */

@@ -1,12 +1,12 @@
-#ifndef FLEXITASK_UTILS_HPP_INCLUDED
-#define FLEXITASK_UTILS_HPP_INCLUDED
+#ifndef HARDCILK_UTILS_HPP_INCLUDED
+#define HARDCILK_UTILS_HPP_INCLUDED
 
 #include <ios>
 #include <sstream>
 
-#include <flexitask/Context.hpp>
+#include <hardcilk/Context.hpp>
 
-namespace flexitask {
+namespace hardcilk {
 
 struct PerfFigures;
 
@@ -46,6 +46,6 @@ struct PerfFigures {
     ) noexcept;
 };
 
-} /* namespace flexitask */
+} /* namespace hardcilk */
 
-#endif /* FLEXITASK_UTILS_HPP_INCLUDED */
+#endif /* HARDCILK_UTILS_HPP_INCLUDED */

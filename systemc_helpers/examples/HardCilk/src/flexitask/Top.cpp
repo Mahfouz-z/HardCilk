@@ -1,9 +1,9 @@
-#include <flexitask/Defs.hpp>
-#include <flexitask/Desc.hpp>
-#include <flexitask/Factory.hpp>
-#include <flexitask/MemParams.hpp>
-#include <flexitask/Processor.hpp>
-#include <flexitask/Top.hpp>
+#include <hardcilk/Defs.hpp>
+#include <hardcilk/Desc.hpp>
+#include <hardcilk/Factory.hpp>
+#include <hardcilk/MemParams.hpp>
+#include <hardcilk/Processor.hpp>
+#include <hardcilk/Top.hpp>
 
 #include <tlm>
 
@@ -18,7 +18,7 @@
 
 #include <fmt/format.h>
 
-namespace flexitask {
+namespace hardcilk {
 
 static bool isMemoryInterface(desc::Interface const& interface) {
     return interface.protocol == desc::InterfaceProtocol::Axi4 || interface.protocol == desc::InterfaceProtocol::Axi4lite;
@@ -171,4 +171,4 @@ Top::Top(sc_core::sc_module_name const& name, Context& context)
     modules_.emplace_back(std::move(memory));
 }
 
-} /* namespace flexitask */
+} /* namespace hardcilk */

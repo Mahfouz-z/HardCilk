@@ -38,7 +38,7 @@ void task_pe::thread0() {
                     remainingTasks += 2;
                     T1 += sc_core::sc_time(clockPeriod_ns * delayCycles, sc_core::SC_NS).to_seconds();
 
-                    auto address = addrIn_task.read<flexitask::addr_type>();
+                    auto address = addrIn_task.read<hardcilk::addr_type>();
                     auto cont_task = task_task { .counter = 1, .depth = task.depth, .return_address = task.return_address, .index = i + 1, .padding = 0 };
                     auto new_task = task_task { .counter = 0, .depth = task.depth - 1, .return_address = address, .index = 0, .padding = 0 };
 
@@ -175,7 +175,7 @@ void task_pe::thread2() {
 //                     (*remainingTasks) += 2;
 //                     *T1 += (delayCycles + 2);
 
-//                     auto address = addrIn_task.read<flexitask::addr_type>();
+//                     auto address = addrIn_task.read<hardcilk::addr_type>();
 //                     auto cont_task = task_task {.counter = 1, .depth = task.depth , .return_address =  task.return_address, .index = i + 1, .padding = 0};
 //                     auto t_now = sc_core::sc_time_stamp().to_seconds();
 //                     mem.write(address, cont_task);
