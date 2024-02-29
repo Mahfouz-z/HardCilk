@@ -124,8 +124,8 @@ RUN sh opencilk-2.1.0-aarch64-linux-gnu-ubuntu-22.04.sh --prefix=/home/$USERNAME
 RUN rm opencilk-2.1.0-aarch64-linux-gnu-ubuntu-22.04.sh
 
 # Install HardCilk
-RUN mkdir -p /home/$USERNAME/repos/HardCilk
-RUN git clone 
+# RUN mkdir -p /home/$USERNAME/repos/HardCilk
+# RUN git clone 
 
 
 WORKDIR /home/$USERNAME
@@ -136,4 +136,5 @@ ENV VERILATOR_ROOT="/usr/local"
 ENV XILINX_SYSTEMC_INCLUDE="/root/.local/include"
 # set clang path for openCilk clang
 ENV PATH="/home/$USERNAME/repos/OpenCilk/bin:${PATH}"
-
+# To run in release mode
+ENV export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu/"
