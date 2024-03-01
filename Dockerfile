@@ -4,6 +4,8 @@ SHELL ["/bin/bash", "-c"]
 # to silence some apt-get warnings
 ARG DEBIAN_FRONTEND=noninteractive
 ARG DEBCONF_NOWARNINGS="yes"
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
 
 ARG USERNAME=devel
 ARG USER_UID=1000
@@ -26,12 +28,12 @@ RUN sudo apt-get update -y && sudo apt-get upgrade -y
 RUN sudo apt-get install -y bash-completion wget curl ca-certificates
 
 # git and github cli
-RUN sudo apt-get install -y git
-RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-    && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-    && sudo apt-get -y update \
-    && sudo apt-get -y install gh
+# RUN sudo apt-get install -y git
+# RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+#     && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+#     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+#     && sudo apt-get -y update \
+#     && sudo apt-get -y install gh
 
 # verilator dependencies
 RUN sudo apt-get install -y \
@@ -59,7 +61,7 @@ RUN sudo apt-get install -y \
     libfmt-dev
 
 # totally optional, I like to have a nice command prompt
-RUN (cd /tmp && ([[ -d sexy-bash-prompt ]] || git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt) && cd sexy-bash-prompt && make install 2> /dev/null) && source /home/$USERNAME/.bashrc
+# RUN (cd /tmp && ([[ -d sexy-bash-prompt ]] || git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt) && cd sexy-bash-prompt && make install 2> /dev/null) && source /home/$USERNAME/.bashrc
 
 # install conda
 ENV CONDA_DIR=/home/$USERNAME/miniconda

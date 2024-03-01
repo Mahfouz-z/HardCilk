@@ -35,12 +35,12 @@ class Entry(EntryBase):
             ],
             [
                 #scalability experiments
-                Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 1, "systemMemory.numParallelRequests" : 32}), # 8 PEs
-                Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 2, "systemMemory.numParallelRequests" : 32}), # 16 PEs
-                Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 3, "systemMemory.numParallelRequests" : 32}), # 32 PEs
-                Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 4, "systemMemory.numParallelRequests" : 32}), # 64 PEs
-                Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 5, "systemMemory.numParallelRequests" : 32}), # 128 PEs
-                Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 6, "systemMemory.numParallelRequests" : 2048})  # 256 PEs
+                Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 1, "systemMemory.numParallelRequests" : 32}), # 8 PEs
+                Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 2, "systemMemory.numParallelRequests" : 32}), # 16 PEs
+                Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 3, "systemMemory.numParallelRequests" : 32}), # 32 PEs
+                Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 4, "systemMemory.numParallelRequests" : 32}), # 64 PEs
+                Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 5, "systemMemory.numParallelRequests" : 32}), # 128 PEs
+                Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 6, "systemMemory.numParallelRequests" : 2048})  # 256 PEs
             ],
             [
                 # Argument routing servers count experiment

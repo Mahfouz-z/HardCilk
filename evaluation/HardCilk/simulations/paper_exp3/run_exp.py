@@ -42,12 +42,12 @@ class Entry(EntryBase):
             Experiment(SIMULATION_NAME, {"delayCycles": 512, "factoryIndex" : 0})
         ],
         [
-            Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 1}), # 8 PEs
-            Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 2}), # 16 PEs
-            Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 3}), # 32 PEs
-            Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 4}), # 64 PEs
-            Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 5}), # 128 PEs
-            Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 6})  # 256 PEs
+            Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 1}), # 8 PEs
+            Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 2}), # 16 PEs
+            Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 3}), # 32 PEs
+            Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 4}), # 64 PEs
+            Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 5}), # 128 PEs
+            Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 6})  # 256 PEs
         ]
         ]
         
