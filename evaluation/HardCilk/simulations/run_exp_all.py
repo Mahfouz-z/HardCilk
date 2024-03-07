@@ -10,6 +10,9 @@ class BulkEntry(BulkEntryBase):
 
         self.addEntryExternal("paper_exp_dae_0/run_exp.py")
         self.addEntryExternal("paper_exp_dae_1/run_exp.py")
+        self.addEntryExternal("paper_exp1/run_exp.py")
+        self.addEntryExternal("paper_exp2/run_exp.py")
+        self.addEntryExternal("paper_exp3/run_exp.py")
 
 
 if __name__ == "__main__":

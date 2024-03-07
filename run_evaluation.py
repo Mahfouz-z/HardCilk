@@ -4,8 +4,7 @@ import time
 import threading
 
 
-p = subprocess.Popen('sh post-script.sh', shell=True)
-p.wait()
+subprocess.Popen('sh post-script.sh', shell=True).wait()
 
 
 def run_arch_gen():
@@ -29,12 +28,10 @@ def runTesting():
     g5.wait()
 
     # Run cmake and make
-    p = subprocess.Popen('cd evaluation/HardCilk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j 8', shell=True)
-    p.wait()
+    subprocess.Popen('cd evaluation/HardCilk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j 8', shell=True).wait()
     
     # symbolic links for the runner
-    p = subprocess.Popen('cd evaluation/HardCilk/simulations && mkdir run && mkdir run/bin', shell=True)
-    p.wait()    
+    subprocess.Popen('cd evaluation/HardCilk/simulations && mkdir run && mkdir run/bin', shell=True).wait()
     
     l1 = subprocess.Popen('cd evaluation/HardCilk/simulations/run/bin && ln -s ../../../build/simulations/paper_exp_dae_0/simulation_paper_exp_dae_0', shell=True)
     l2 = subprocess.Popen('cd evaluation/HardCilk/simulations/run/bin && ln -s ../../../build/simulations/paper_exp_dae_1/simulation_paper_exp_dae_1', shell=True)
@@ -50,12 +47,10 @@ def runTesting():
 
 
     # Run the experiments
-    p = subprocess.Popen('cd evaluation/HardCilk/simulations && python3 run_exp_all.py --run --force --num-workers 8', shell=True)
-    p.wait()
+    subprocess.Popen('cd evaluation/HardCilk/simulations && python3 run_exp_all.py --run --force --num-workers 8', shell=True).wait()
 
     # copy results to /results
-    p = subprocess.Popen('cp -r evaluation/HardCilk/simulations/run /results', shell=True)
-    p.wait()
+    # subprocess.Popen('cp -r evaluation/HardCilk/simulations/run /results', shell=True).wait()
 
     print("Experiments Finished!")
 
