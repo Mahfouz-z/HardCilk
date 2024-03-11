@@ -96,6 +96,7 @@ WORKDIR /home/$USERNAME/repos/verilator
 RUN git clone https://github.com/verilator/verilator.git
 RUN mkdir -p /home/$USERNAME/repos/verilator/verilator/build-release
 WORKDIR /home/$USERNAME/repos/verilator/verilator/build-release
+RUN git checkout stable
 RUN cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=20 -G Ninja -DCMAKE_INSTALL_PREFIX=/usr/local
 RUN ninja
 RUN sudo ninja install

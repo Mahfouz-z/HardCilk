@@ -59,11 +59,11 @@ class argRouteNetwork(addrWidth: Int, taskWidth: Int, peCount: Int, vasNum:Int, 
     var i = 0
     while (i < tagList.length){
         if(currentVas <  numberVASWithTwoTags){ 
-            println("Two tags")
+            //println("Two tags")
             virtNetworkUnits = virtNetworkUnits :+ Module(new argRouteNtwVirtUnit(addrWidth, log2Ceil(vasNum), tagBitsShift,Array(tagList(i), tagList(i+1)), vasNum))
             i = i + 2
         } else {
-            println("One tag")
+            //println("One tag")
             virtNetworkUnits = virtNetworkUnits :+ Module(new argRouteNtwVirtUnit(addrWidth, log2Ceil(vasNum), tagBitsShift, Array(tagList(i)), vasNum))
             i = i + 1
         }

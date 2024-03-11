@@ -40,7 +40,7 @@ class stealNW_TQ(peCount: Int, vssCount: Int, vasCount: Int, taskWidth: Int, que
     var maxLengthThresh = max((0.7 * queueMaxLength).asInstanceOf[Int], 1)
     
     if(!spawnsItself){
-        println("Does not spawn itself")
+        //println("Does not spawn itself")
         minLengthThresh = (0.8 * queueMaxLength).asInstanceOf[Int]
         maxLengthThresh = queueMaxLength - 1
     }
@@ -48,7 +48,7 @@ class stealNW_TQ(peCount: Int, vssCount: Int, vasCount: Int, taskWidth: Int, que
     assert(minLengthThresh < queueMaxLength)
     assert(maxLengthThresh <=queueMaxLength)
     
-    println(f"\t\t From Steal Server the minLengthThresh = ${minLengthThresh}, the maxLengthThresh = ${maxLengthThresh}")
+    //println(f"\t\t From Steal Server the minLengthThresh = ${minLengthThresh}, the maxLengthThresh = ${maxLengthThresh}")
 
     // Instantiate the stealing servers.
     val stealServers = Seq.fill(peCount)(Module (new stealServer(taskWidth, queueMaxLength, minLengthThresh, maxLengthThresh, peCount+vasCount+vssCount, successiveNetworkConfig)))
@@ -117,24 +117,24 @@ class stealNW_TQ(peCount: Int, vssCount: Int, vasCount: Int, taskWidth: Int, que
         var vasIndex = 0
         var vasAddedToTheChainFlag = 0
         for (i <- 0 until (peCount + vssCount + vasCount)) {
-            println("Entered The for loop")
+            //println("Entered The for loop")
             if(vssIndicies.contains(i)) {
-                println("\t\tConnecting a vss")
+                //println("\t\tConnecting a vss")
                 stealNet.io.connSS(i) <> io.connVSS(vssIndex)
                 vssIndex += 1
                 vasAddedToTheChainFlag = 0
             } else if(vasIndex < vasCount && vasAddedToTheChainFlag == 0) {
-                println("\t\tConnecting a vas")
+                //println("\t\tConnecting a vas")
                 vasAddedToTheChainFlag = 1
                 stealNet.io.connSS(i) <> io.connVAS(vasIndex)
                 vasIndex += 1
             } else if (ssIndex < peCount) {
-                println("\t\tConnecting a steal server")
+                //println("\t\tConnecting a steal server")
                 stealNet.io.connSS(i) <> stealServers(ssIndex).io.connNetwork
                 ssIndex += 1 
                 vasAddedToTheChainFlag = 0
             } else if (vasIndex < vasCount) {
-                println("\t\tConnecting vas")
+                //println("\t\tConnecting vas")
                 stealNet.io.connSS(i) <> io.connVAS(vasIndex)
                 vasIndex += 1
             }
