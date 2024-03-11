@@ -28,7 +28,7 @@ def runTesting():
     g5.wait()
 
     # Run cmake and make
-    subprocess.Popen('cd evaluation/HardCilk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j 8', shell=True).wait()
+    subprocess.Popen('cd evaluation/HardCilk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j 28', shell=True).wait()
     
     # symbolic links for the runner
     subprocess.Popen('cd evaluation/HardCilk/simulations && mkdir run && mkdir run/bin', shell=True).wait()
@@ -47,7 +47,7 @@ def runTesting():
 
 
     # Run the experiments
-    subprocess.Popen('cd evaluation/HardCilk/simulations && python3 run_exp_all.py --run --force --num-workers 8', shell=True).wait()
+    subprocess.Popen('cd evaluation/HardCilk/simulations && python3 run_exp_all.py --run --force --num-workers 28', shell=True).wait()
 
     # copy results to /results
     # subprocess.Popen('cp -r evaluation/HardCilk/simulations/run /results', shell=True).wait()
