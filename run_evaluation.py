@@ -47,7 +47,7 @@ def runTesting():
 
 
     # Run the experiments
-    subprocess.Popen('cd evaluation/HardCilk/simulations && python3 run_exp_all.py --run --force --num-workers 28', shell=True).wait()
+    subprocess.Popen('cd evaluation/HardCilk/simulations && LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu/" python3 run_exp_all.py --run --force --num-workers 28', shell=True).wait()
 
     # copy results to /results
     # subprocess.Popen('cp -r evaluation/HardCilk/simulations/run /results', shell=True).wait()
