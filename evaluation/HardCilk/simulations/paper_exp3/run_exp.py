@@ -33,15 +33,26 @@ class Entry(EntryBase):
         )
 
         exps = [[
+            # Get efficiency for each delay on 28 PEs system
             Experiment(SIMULATION_NAME, {"delayCycles": 8, "factoryIndex" : 0}),  # The factory index coresponding to 28 PEs
             Experiment(SIMULATION_NAME, {"delayCycles": 16, "factoryIndex" : 0}),
             Experiment(SIMULATION_NAME, {"delayCycles": 32, "factoryIndex" : 0}),
             Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 0}),
             Experiment(SIMULATION_NAME, {"delayCycles": 128, "factoryIndex" : 0}),
             Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 0}),
-            Experiment(SIMULATION_NAME, {"delayCycles": 512, "factoryIndex" : 0})
+            Experiment(SIMULATION_NAME, {"delayCycles": 512, "factoryIndex" : 0}),
+
+            # Get T1 for each delay
+            Experiment(SIMULATION_NAME, {"delayCycles": 8, "factoryIndex" : 7}),
+            Experiment(SIMULATION_NAME, {"delayCycles": 16, "factoryIndex" : 7}),
+            Experiment(SIMULATION_NAME, {"delayCycles": 32, "factoryIndex" : 7}),
+            Experiment(SIMULATION_NAME, {"delayCycles": 64, "factoryIndex" : 7}),
+            Experiment(SIMULATION_NAME, {"delayCycles": 128, "factoryIndex" : 7}),
+            Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 7}),
+            Experiment(SIMULATION_NAME, {"delayCycles": 512, "factoryIndex" : 7})
         ],
         [
+            # Get scalability for each number of PEs on 256 delay cycles
             Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 1}), # 8 PEs
             Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 2}), # 16 PEs
             Experiment(SIMULATION_NAME, {"delayCycles": 256, "factoryIndex" : 3}), # 32 PEs
