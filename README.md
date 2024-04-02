@@ -15,7 +15,7 @@
 >docker ps
 
 ### Use the container id to connect to a new terminal instance in the image 
-> docker exec -it my_container /bin/bash
+> docker exec -it \<container-id\> /bin/bash
 
 
 ### Inside the docker image from the new terminal in the ~/repos/HardCilk directory, run the following command to run the HardCilk experiments
