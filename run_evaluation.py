@@ -12,7 +12,7 @@ def run_arch_gen():
 
 
 def runTesting():
-    time.sleep(30)  
+    # time.sleep(30)  
     
     # Generate the circuits to be simulated
     g1 = subprocess.Popen('cd evaluation/HardCilk/simulations/paper_exp_dae_0 && python3 generate_bulk.py', shell=True)
@@ -56,11 +56,11 @@ def runTesting():
 
 
 # Create threads for each function
-thread1 = threading.Thread(target=run_arch_gen)
+#thread1 = threading.Thread(target=run_arch_gen)
 thread2 = threading.Thread(target=runTesting)
 
 # Start the threads
-thread1.start()
+#thread1.start()
 thread2.start()
 
 # Join the the testing thread
