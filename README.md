@@ -1,3 +1,5 @@
+# This repo includes the open source code corresponding to the FCCM'24 paper "HardCilk: Cilk-like Task Parallelism for FPGAs" 
+
 ## Installing the Docker image
 ### Run inside the repo directory to build the image
 >docker build -t evalimage .
