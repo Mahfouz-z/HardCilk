@@ -1,4 +1,4 @@
-## Running evaluation directions
+## Installing the Docker image
 ### Run inside the repo directory to build the image
 >docker build -t evalimage .
 
@@ -8,6 +8,14 @@
 ### In the docker image terminal run this command to install necessary libraries
 >sh /mnt/post-script.sh 
 
+## Running the architectural generator
+The architectural generator enables custom creation of the architecture described in the paper for any arbitrary task parallel algorithm described in [Cilk](https://dl.acm.org/doi/10.1145/209937.209958) syntax. 
+1. Specify the JSON descriptor file for the code you to generate its circuit. An example descriptor for the fib example in the paper can be found in this [link](https://github.com/Mahfouz-z/HardCilk/blob/main/architecture-generator/taskDescriptors/fibonacci.json).
+2. In the architecture-generator directory run:
+   > exec sbt "runMain fullSysGen.CommandLineEmitter <path_to_JSON_file>"
+3. You can find the output Verilog files in the output directory under the architecture-generator directory. The output Verilog has AXI4 and AXI-stream interfaces that you can easily integrate with your PEs and memory system. The interfaces are also compliant with the Vivado IP integrator which makes it easier to connect the ports.
+
+## Running the paper evaluation
 ### In the docker image terminal run the following command to run the generator server, wait for the server to show that it is running before running the next command
 >cd ~/repos/HardCilk/architecture-generator/ && exec sbt "runMain fullSysGen.ServerEmitter"
 
